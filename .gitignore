@@ -1,0 +1,52 @@
+# 의존성
+node_modules/
+frontend/node_modules/
+
+# 빌드 결과물
+dist/
+frontend/dist/
+
+# Python 캐시
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+
+# API 출력 (임시 파일)
+api/output/
+
+# 환경 설정
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 에디터
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Vercel
+.vercel/
+
+# 로컬 로그
+*.log
+npm-debug.log*
+
+# 데이터 / 백업 (DB는 백업 후 버전관리 제외)
+data/*.db
+backups/
+
+# Python 가상환경
+.venv/
+venv/
+
+# 출력 파일
+output/
+
+# 구 DB 파일 (data/standard_view.db로 마이그레이션됨)
+backend/*.db
