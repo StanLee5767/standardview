@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Standard View · Daily Brief · 2026년 5월 18일 (월)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #FFFFFF;
+    --surface: #F8F9FA;
+    --surface-2: #F1F3F5;
+    --border: #E5E7EB;
+    --border-strong: #D1D5DB;
+    --text: #111827;
+    --text-muted: #6B7280;
+    --text-subtle: #9CA3AF;
+    --indigo: #4F46E5;
+    --indigo-soft: #EEF2FF;
+    --indigo-border: #C7D2FE;
+    --amber-soft: #FFFBEB;
+    --amber-border: #FDE68A;
+    --amber-text: #92400E;
+    --green: #10B981;
+    --red: #EF4444;
+    --radius: 12px;
+    --radius-sm: 8px;
+  }
+
+  html, body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .top-border { height: 3px; background: var(--indigo); width: 100%; }
+  .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+  .header {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    padding: 28px 0 20px; border-bottom: 1px solid var(--border);
+  }
+  .wordmark { font-weight: 800; font-size: 20px; letter-spacing: -0.02em; color: var(--text); }
+  .wordmark .dot {
+    display: inline-block; width: 6px; height: 6px; background: var(--indigo);
+    border-radius: 50%; margin-left: 4px; transform: translateY(-2px);
+  }
+  .subtitle { margin-top: 4px; font-size: 12px; font-weight: 500; color: var(--text-muted); letter-spacing: 0.02em; }
+  .header-right { text-align: right; }
+  .date { font-size: 13px; font-weight: 600; color: var(--text); }
+  .issue { margin-top: 4px; font-size: 11px; font-weight: 500; color: var(--text-subtle); text-transform: uppercase; letter-spacing: 0.08em; }
+
+  .section { margin-top: 36px; }
+  .section-label {
+    display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600;
+    color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px;
+  }
+  .section-label::before { content: ''; width: 4px; height: 4px; background: var(--indigo); border-radius: 50%; }
+  .section-title { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; color: var(--text); margin-bottom: 16px; }
+
+  .exec-summary {
+    background: var(--indigo-soft); border: 1px solid var(--indigo-border);
+    border-radius: var(--radius); padding: 24px 26px;
+  }
+  .exec-summary .section-label { color: var(--indigo); margin-bottom: 10px; }
+  .exec-summary .section-label::before { background: var(--indigo); }
+  .exec-summary h2 { font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 14px; letter-spacing: -0.01em; }
+  .exec-summary ul { list-style: none; }
+  .exec-summary li { position: relative; padding-left: 18px; margin-bottom: 8px; font-size: 14.5px; color: var(--text); line-height: 1.6; }
+  .exec-summary li:last-child { margin-bottom: 0; }
+  .exec-summary li::before { content: ''; position: absolute; left: 0; top: 9px; width: 6px; height: 6px; background: var(--indigo); border-radius: 2px; }
+
+  .metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .metric-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 18px; }
+  .metric-label { font-size: 11px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px; }
+  .metric-value { font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; line-height: 1.1; }
+  .metric-change { display: inline-flex; align-items: center; gap: 3px; margin-top: 8px; font-size: 12px; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .metric-change.up { color: var(--green); }
+  .metric-change.down { color: var(--red); }
+  .metric-change.flat { color: var(--text-muted); }
+  .arrow { display: inline-block; font-size: 10px; line-height: 1; }
+
+  .macro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .macro-col { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 22px; }
+  .macro-col h3 { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px; }
+  .macro-col h3 .flag { font-size: 10px; font-weight: 600; color: var(--indigo); background: var(--indigo-soft); padding: 2px 8px; border-radius: 4px; letter-spacing: 0.04em; }
+  .news-item { padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .news-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .news-item:first-child { padding-top: 0; }
+  .news-headline { font-size: 14px; font-weight: 500; color: var(--text); line-height: 1.45; margin-bottom: 6px; }
+  .news-meta { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--text-subtle); }
+  .source-tag { font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; }
+  .meta-dot { width: 2px; height: 2px; background: var(--text-subtle); border-radius: 50%; }
+
+  .deals { display: flex; flex-direction: column; gap: 10px; }
+  .deal-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 18px; }
+  .deal-badge { display: inline-block; font-size: 10px; font-weight: 700; color: var(--indigo); background: var(--indigo-soft); border: 1px solid var(--indigo-border); padding: 3px 8px; border-radius: 4px; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px; }
+  .deal-headline { font-size: 15px; font-weight: 600; color: var(--text); line-height: 1.4; margin-bottom: 4px; letter-spacing: -0.005em; }
+  .deal-summary { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+
+  .industry-list { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 4px 20px; }
+  .industry-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+  .industry-item:last-child { border-bottom: none; }
+  .sector-tag { flex-shrink: 0; font-size: 10px; font-weight: 700; color: var(--text-muted); background: var(--bg); border: 1px solid var(--border-strong); padding: 2px 8px; border-radius: 4px; letter-spacing: 0.04em; text-transform: uppercase; margin-top: 2px; min-width: 64px; text-align: center; }
+  .industry-headline { font-size: 14px; font-weight: 500; color: var(--text); line-height: 1.45; }
+  .industry-headline .src { font-size: 11px; font-weight: 600; color: var(--text-subtle); margin-left: 6px; }
+
+  .insights { background: var(--amber-soft); border: 1px solid var(--amber-border); border-radius: var(--radius); padding: 24px 26px; }
+  .insights .section-label { color: var(--amber-text); margin-bottom: 10px; }
+  .insights .section-label::before { background: var(--amber-text); }
+  .insights h2 { font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 14px; letter-spacing: -0.01em; }
+  .insights ul { list-style: none; }
+  .insights li { position: relative; padding-left: 22px; margin-bottom: 10px; font-size: 14.5px; color: var(--text); line-height: 1.6; }
+  .insights li:last-child { margin-bottom: 0; }
+  .insights li::before { content: '→'; position: absolute; left: 0; top: 0; color: var(--amber-text); font-weight: 700; }
+
+  .empty-state { padding: 16px; text-align: center; font-size: 12px; color: var(--text-subtle); font-style: italic; }
+
+  .footer { margin-top: 48px; padding: 20px 0 32px; border-top: 1px solid var(--border); text-align: center; font-size: 12px; color: var(--text-subtle); letter-spacing: 0.02em; }
+  .footer .brand { color: var(--text-muted); font-weight: 600; }
+  .footer .sep { margin: 0 8px; color: var(--border-strong); }
+
+  @media (max-width: 640px) {
+    body { font-size: 14px; }
+    .container { padding: 0 16px; }
+    .header { flex-direction: column; gap: 12px; padding: 20px 0 16px; }
+    .header-right { text-align: left; }
+    .section { margin-top: 28px; }
+    .section-title { font-size: 18px; }
+    .exec-summary, .insights { padding: 20px; }
+    .exec-summary h2, .insights h2 { font-size: 16px; }
+    .metrics { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .metric-card { padding: 14px; }
+    .metric-value { font-size: 19px; }
+    .macro-grid { grid-template-columns: 1fr; gap: 12px; }
+    .macro-col { padding: 18px; }
+    .deal-card { padding: 14px 16px; }
+    .deal-headline { font-size: 14.5px; }
+    .industry-list { padding: 4px 16px; }
+    .industry-item { flex-direction: column; gap: 6px; }
+    .sector-tag { min-width: auto; align-self: flex-start; }
+    .footer { margin-top: 36px; padding: 18px 0 28px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-border"></div>
+
+<div class="container">
+
+  <header class="header">
+    <div>
+      <div class="wordmark">Standard View<span class="dot"></span></div>
+      <div class="subtitle">Daily Brief · PE/VC Intelligence</div>
+    </div>
+    <div class="header-right">
+      <div class="date">2026년 5월 18일 (월)</div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="exec-summary">
+      <div class="section-label">Executive Summary</div>
+<h2>2026-05-18 주요 이슈</h2>      <ul>
+        <li>한국 기준금리 2.5%</li>
+        <li>미국 기준금리 3.64%</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">Key Metrics</div>
+    <h2 class="section-title">시장 지표</h2>
+    <div class="metrics">
+      <div class="metric-card">
+        <div class="metric-label">USD/KRW</div>
+        <div class="metric-value">{&#39;value&#39;: 1480.6, &#39;date&#39;: &#39;20260424&#39;, &#39;mom&#39;: 3.0, &#39;yoy&#39;: None, &#39;trend&#39;: &#39;→&#39;, &#39;source&#39;: &#39;ECOS&#39;, &#39;from_cache&#39;: True}</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">Macro Trends</div>
+    <h2 class="section-title">매크로 동향</h2>
+    <div class="macro-grid">
+      <div class="macro-col">
+        <h3>국내 <span class="flag">KR</span></h3>
+          <div class="empty-state">국내 뉴스 수집 중</div>
+      </div>
+
+      <div class="macro-col">
+        <h3>글로벌 <span class="flag">GLOBAL</span></h3>
+          <div class="empty-state">글로벌 뉴스 수집 중</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">Deal Highlights</div>
+    <h2 class="section-title">주요 딜</h2>
+    <div class="deals">
+      <div class="deal-card">
+<div class="deal-badge">VC 투자유치 / 자본조달</div>        <div class="deal-headline">산업성장펀드, ‘R&amp;amp;D’에서 ‘M.AX·5극3특’으로 확대 개편</div>
+<div class="deal-summary">벤처캐피털 관계자는 “최근 자본시장의 활황에도 성장 단계에 있는 비상장기업에는 필요한 만큼의 자금... 우리 경제 내재적 성장동력은 정체되면서 하루라도 뛰지 않으면 뒤로 밀려나는 위기 상황”이라고 말했다.... </div>      </div>
+      <div class="deal-card">
+<div class="deal-badge">기타</div>        <div class="deal-headline">삼성전자 노조 총파업 D-3…&#39;최후 담판&#39; 극적 타결될까</div>
+<div class="deal-summary">이재명 대통령은 이날 X(옛 트위터)를 통해 &amp;quot;자유민주적 기본질서와 자본주의적 시장경제질서를 채택한 대한민국에서는 기업만큼 노동도 존중돼야 하고 노동권만큼 기업경영권도 존중돼야 한다&amp;quot;고 밝혔다. 긴급조정권... </div>      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="insights">
+      <div class="section-label">Investment Insights</div>
+<h2>PE/VC 관점 — 오늘 주목할 사안</h2>      <ul>
+        <li>금리 동결 기조 지속 → LBO 레버리지 비율 보수적 유지 권고</li>
+        <li>AI·반도체 섹터 글로벌 자금 집중 — 국내 스타트업 후속 라운드 모멘텀 주목</li>
+        <li>2차전지 밸류체인 구조조정 본격화 — 선별적 피킹 전략 권고</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span class="brand">Standard View</span>
+    <span class="sep">·</span>
+    <span>2026년 5월 18일 (월)</span>
+    <span class="sep">·</span>
+    <span>Powered by Claude</span>
+  </footer>
+
+</div>
+</body>
+</html>
