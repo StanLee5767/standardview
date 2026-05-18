@@ -373,6 +373,47 @@
     font-size: 11px; color: var(--text-subtle);
   }
 
+  /* ── Metric group headers & badge ───────────── */
+  .metrics-group-header {
+    grid-column: 1 / -1;
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: #64748B;
+    padding: 6px 0 2px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .metric-badge {
+    font-size: 9px;
+    background: rgba(148,163,184,0.12);
+    color: #64748B;
+    border-radius: 3px;
+    padding: 1px 4px;
+    margin-left: 3px;
+    vertical-align: middle;
+  }
+  /* ── Data Source Status card ────────────────── */
+  .status-grid {
+    display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px;
+  }
+  .status-chip {
+    font-size: 11px; padding: 2px 9px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: #94A3B8;
+  }
+  .status-chip.s-ok { border-color: rgba(16,185,129,0.4); color: #10B981; }
+  .status-chip.s-missing { border-color: rgba(245,158,11,0.35); color: #F59E0B; }
+  .status-quality { font-size: 11px; color: #64748B; margin-top: 6px; }
+  /* ── News section headers ───────────────────── */
+  .news-section-header {
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: #64748B; padding: 8px 0 4px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    margin-bottom: 4px;
+  }
+
   .takeaway-card { position: relative; overflow: hidden; }
   .takeaway-card .panel-title { position: relative; z-index: 1; }
   .takeaway-bg {
@@ -544,12 +585,24 @@ aria-disabled="true">
         <h2 class="summary-title">2026-05-18 핵심 요약</h2>
       </div>
       <ul>
-        <li>금리 상방 리스크가 핵심 변수로 부상: 한·미·일 국채금리가 수년 만에 동반 최고치를 경신하며 인플레이션 공포가 글로벌 자본시장 전반을 압박하고 있음</li>
-        <li>한국은행 금리인상 전환 가능성 가시화: 현재 기준금리 2.5%에서 최종 3.25% 수준까지 인상이 시장에서 선반영되기 시작, 섹터 로테이션 및 레버리지 재조정 국면 진입</li>
-        <li>원·달러 환율 1,500원 상회 지속: 안전자산 선호 심리와 달러 강세가 복합 작용하며 외국인 자금 이탈 압력 구조화</li>
-        <li>호르무즈 협상 교착 + 러시아 원유 면제 번복: 공급 불확실성이 고유가-고물가 악순환을 강화하는 방향으로 작동 중</li>
-        <li>글로벌 대형 기술 IPO 파이프라인 가시화: SpaceX·OpenAI·Anthropic의 조(兆) 달러 밸류에이션 IPO 기대가 위험자산 시장의 일부 유동성을 흡인할 잠재 요소로 부각</li>
+        <li>한국 기준금리 2.5% — 동결 기조</li>
+        <li>미국 기준금리 3.64% / 미국 10Y 4.47% — Fed 완화 사이클 국면</li>
+        <li>원/달러 1,481원 — 달러 강세 지속</li>
+        <li>WTI 유가 $101.6 / 금 $3300 — 원자재 ↑ 흐름</li>
+        <li>VIX 17.3 — 보통 수준</li>
       </ul>
+    </section>
+
+    <section class="card">
+      <h3 class="panel-title">Data Source Status</h3>
+      <div class="status-grid">
+        <span class="status-chip s-ok">Naver: OK</span>
+        <span class="status-chip s-ok">NewsAPI: OK</span>
+        <span class="status-chip s-ok">GDELT: OK</span>
+        <span class="status-chip s-ok">ECOS: OK</span>
+        <span class="status-chip s-ok">FRED: OK</span>
+      </div>
+      <p class="status-quality">국내 15건 · 글로벌 8건 · 품질: live</p>
     </section>
 
     <section class="card snapshot">
@@ -558,65 +611,227 @@ aria-disabled="true">
         <span class="snapshot-meta">기준: 전일 대비</span>
       </div>
       <div class="metrics-grid">
+        <div class="metrics-group-header">국내 지표</div>
         <div class="metric">
-          <div class="metric-label">한국 기준금리</div>
+          <div class="metric-label">
+            한국 기준금리          </div>
           <div class="metric-row">
             <span class="metric-value">2.5%</span>
             <span class="metric-change flat">
-–동결
+—              동결
             </span>
           </div>
-          <div class="metric-spark"><canvas id="spark-0"></canvas></div>
+          <canvas class="spark" id="spark-1"></canvas>
         </div>
         <div class="metric">
-          <div class="metric-label">미국 기준금리</div>
+          <div class="metric-label">
+            국고채 3년          </div>
           <div class="metric-row">
-            <span class="metric-value">3.64%</span>
-            <span class="metric-change flat">
-–동결
+            <span class="metric-value">2.85%</span>
+            <span class="metric-change down">
+▼              -0.05
             </span>
           </div>
-          <div class="metric-spark"><canvas id="spark-1"></canvas></div>
+          <canvas class="spark" id="spark-2"></canvas>
         </div>
         <div class="metric">
-          <div class="metric-label">USD/KRW</div>
+          <div class="metric-label">
+            국고채 10년          </div>
+          <div class="metric-row">
+            <span class="metric-value">3.05%</span>
+            <span class="metric-change down">
+▼              -0.03
+            </span>
+          </div>
+          <canvas class="spark" id="spark-3"></canvas>
+        </div>
+        <div class="metric">
+          <div class="metric-label">
+            USD/KRW          </div>
           <div class="metric-row">
             <span class="metric-value">1,480.6</span>
             <span class="metric-change up">
-▲+3.00
+▲              +3.00
             </span>
           </div>
-          <div class="metric-spark"><canvas id="spark-2"></canvas></div>
+          <canvas class="spark" id="spark-4"></canvas>
         </div>
         <div class="metric">
-          <div class="metric-label">미국 10Y</div>
+          <div class="metric-label">
+            한국 CPI          </div>
+          <div class="metric-row">
+            <span class="metric-value">117.06</span>
+            <span class="metric-change up">
+▲              +0.61
+            </span>
+          </div>
+          <canvas class="spark" id="spark-5"></canvas>
+        </div>
+        <div class="metric">
+          <div class="metric-label">
+            한국 GDP 성장률<span class="metric-badge">참고값</span>          </div>
+          <div class="metric-row">
+            <span class="metric-value">1.5%</span>
+            <span class="metric-change down">
+▼              ↓
+            </span>
+          </div>
+          <canvas class="spark" id="spark-6"></canvas>
+        </div>
+        <div class="metric">
+          <div class="metric-label">
+            경상수지<span class="metric-badge">참고값</span>          </div>
+          <div class="metric-row">
+            <span class="metric-value">38</span>
+            <span class="metric-change up">
+▲              +5.00
+            </span>
+          </div>
+          <canvas class="spark" id="spark-7"></canvas>
+        </div>
+        <div class="metrics-group-header">글로벌 지표</div>
+        <div class="metric">
+          <div class="metric-label">
+            미국 FFR          </div>
+          <div class="metric-row">
+            <span class="metric-value">3.64%</span>
+            <span class="metric-change flat">
+—              동결
+            </span>
+          </div>
+          <canvas class="spark" id="spark-9"></canvas>
+        </div>
+        <div class="metric">
+          <div class="metric-label">
+            미국 10Y          </div>
           <div class="metric-row">
             <span class="metric-value">4.47%</span>
             <span class="metric-change up">
-▲+0.01
+▲              +0.01
             </span>
           </div>
-          <div class="metric-spark"><canvas id="spark-3"></canvas></div>
+          <canvas class="spark" id="spark-10"></canvas>
         </div>
         <div class="metric">
-          <div class="metric-label">VIX</div>
+          <div class="metric-label">
+            미국 CPI          </div>
+          <div class="metric-row">
+            <span class="metric-value">332.407</span>
+            <span class="metric-change up">
+▲              +2.11
+            </span>
+          </div>
+          <canvas class="spark" id="spark-11"></canvas>
+        </div>
+        <div class="metric">
+          <div class="metric-label">
+            미국 실업률          </div>
+          <div class="metric-row">
+            <span class="metric-value">4.3%</span>
+            <span class="metric-change flat">
+—              동결
+            </span>
+          </div>
+          <canvas class="spark" id="spark-12"></canvas>
+        </div>
+        <div class="metric">
+          <div class="metric-label">
+            미국 GDP<span class="metric-badge">참고값</span>          </div>
+          <div class="metric-row">
+            <span class="metric-value">2.0%</span>
+            <span class="metric-change up">
+▲              +1.50
+            </span>
+          </div>
+          <canvas class="spark" id="spark-13"></canvas>
+        </div>
+        <div class="metric">
+          <div class="metric-label">
+            달러인덱스          </div>
+          <div class="metric-row">
+            <span class="metric-value">118.04</span>
+            <span class="metric-change up">
+▲              +0.03
+            </span>
+          </div>
+          <canvas class="spark" id="spark-14"></canvas>
+        </div>
+        <div class="metric">
+          <div class="metric-label">
+            S&amp;P 500          </div>
+          <div class="metric-row">
+            <span class="metric-value">7,408.50</span>
+            <span class="metric-change down">
+▼              -92.74
+            </span>
+          </div>
+          <canvas class="spark" id="spark-15"></canvas>
+        </div>
+        <div class="metric">
+          <div class="metric-label">
+            NASDAQ          </div>
+          <div class="metric-row">
+            <span class="metric-value">26,225.14</span>
+            <span class="metric-change down">
+▼              -410.08
+            </span>
+          </div>
+          <canvas class="spark" id="spark-16"></canvas>
+        </div>
+        <div class="metric">
+          <div class="metric-label">
+            VIX          </div>
           <div class="metric-row">
             <span class="metric-value">17.26</span>
             <span class="metric-change down">
-▼-0.61
+▼              -0.61
             </span>
           </div>
-          <div class="metric-spark"><canvas id="spark-4"></canvas></div>
+          <canvas class="spark" id="spark-17"></canvas>
         </div>
         <div class="metric">
-          <div class="metric-label">WTI 유가</div>
+          <div class="metric-label">
+            WTI          </div>
           <div class="metric-row">
             <span class="metric-value">$101.6</span>
             <span class="metric-change up">
-▲+2.69
+▲              +2.69
             </span>
           </div>
-          <div class="metric-spark"><canvas id="spark-5"></canvas></div>
+          <canvas class="spark" id="spark-18"></canvas>
+        </div>
+        <div class="metric">
+          <div class="metric-label">
+            브렌트유          </div>
+          <div class="metric-row">
+            <span class="metric-value">$106.1</span>
+            <span class="metric-change up">
+▲              +2.63
+            </span>
+          </div>
+          <canvas class="spark" id="spark-19"></canvas>
+        </div>
+        <div class="metric">
+          <div class="metric-label">
+            구리          </div>
+          <div class="metric-row">
+            <span class="metric-value">$12528.71</span>
+            <span class="metric-change down">
+▼              -422.64
+            </span>
+          </div>
+          <canvas class="spark" id="spark-20"></canvas>
+        </div>
+        <div class="metric">
+          <div class="metric-label">
+            금          </div>
+          <div class="metric-row">
+            <span class="metric-value">$3,300</span>
+            <span class="metric-change up">
+▲              +150.00
+            </span>
+          </div>
+          <canvas class="spark" id="spark-21"></canvas>
         </div>
       </div>
     </section>
@@ -692,82 +907,116 @@ aria-disabled="true">
         <div class="comment-icon blue">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
         </div>
-        <h3 class="comment-title">대규모 공급계약</h3>
+        <h3 class="comment-title">IPO 및 Pre-IPO</h3>
       </div>
-      <p class="comment-body">롯데바이오로직스, 英 오티모 파마와 항체의약품 추가 수주</p>
+      <p class="comment-body">[IPO] 피스피스스튜디오 &amp;quot;마르디 메크르디는 IP&amp;quot;…글로벌 공략 가속</p>
     </section>
     <section class="card comment-card">
       <div class="comment-head">
         <div class="comment-icon blue">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
         </div>
-        <h3 class="comment-title">구조조정</h3>
+        <h3 class="comment-title">Deal</h3>
       </div>
-      <p class="comment-body">삼성 파업, 국가경제 리스크로 부상하나…李정부 &#39;긴급조정권&#39; 주시</p>
-    </section>
-    <section class="card comment-card">
-      <div class="comment-head">
-        <div class="comment-icon blue">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-        </div>
-        <h3 class="comment-title">구조조정</h3>
-      </div>
-      <p class="comment-body">삼성전자 노사 사후조정 첫날 종료 “접점 찾는 중”</p>
-    </section>
-    <section class="card comment-card">
-      <div class="comment-head">
-        <div class="comment-icon blue">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-        </div>
-        <h3 class="comment-title">구조조정</h3>
-      </div>
-      <p class="comment-body">삼성전자 2차 사후조정 ‘전반전’ 종료…19일 다시 만난다</p>
+      <p class="comment-body">[IPO] 피스피스스튜디오 &amp;quot;마르디 메크르디는 IP&amp;quot;…글로벌 공략 가속</p>
     </section>
   </div>
 
   <div class="bottom-grid">
 
     <section class="card news-card">
-      <h3 class="panel-title">Macro News Brief</h3>
+      <h3 class="panel-title">Macro News</h3>
+      <div class="news-section-header">국내 뉴스</div>
       <div class="news-item">
-        <span class="news-tag tag-blue">국내</span>
-        <a class="news-headline news-link" href="https://www.nbntv.kr/news/articleView.html?idxno=340131" target="_blank" rel="noopener">[풍문레이다] 알에프세미④ 5년전 상폐 몰아넣은 텔루스 사태, 꼬르자르...</a>
+        <span class="news-tag tag-blue">AI</span>
+        <a class="news-headline news-link" href="http://www.cctimes.kr/news/articleView.html?idxno=907427" target="_blank" rel="noopener">김영환·안철수 &amp;quot;AI 초과이윤 국민배당 … 공산주의적 발상&amp;quot;</a>
         <span class="news-time">18 Ma</span>
       </div>
       <div class="news-item">
         <span class="news-tag tag-blue">국내</span>
-        <a class="news-headline news-link" href="https://www.khan.co.kr/article/202605182016005" target="_blank" rel="noopener">[정동칼럼]구도라는 광풍, 정책이라는 촛불</a>
+        <a class="news-headline news-link" href="http://www.phmbc.co.kr/www/news/desk_news?idx=202257&amp;mode=view" target="_blank" rel="noopener">박용선 * 이철우, 포항 발전 5대 공동비전 발표</a>
         <span class="news-time">18 Ma</span>
       </div>
       <div class="news-item">
         <span class="news-tag tag-blue">국내</span>
-        <a class="news-headline news-link" href="https://www.idomin.com/news/articleView.html?idxno=2006030" target="_blank" rel="noopener">묻고 더블? 김해시장 후보 &#39;민생 지원금&#39; 금액으로 경쟁 [6.3 쟁점 분석]</a>
-        <span class="news-time">18 Ma</span>
-      </div>
-      <div class="news-item">
-        <span class="news-tag tag-green">바이오</span>
-        <a class="news-headline news-link" href="http://www.finomy.com/news/articleView.html?idxno=254545" target="_blank" rel="noopener">롯데바이오로직스, 英 오티모 파마와 항체의약품 추가 수주</a>
+        <a class="news-headline news-link" href="http://www.enewstoday.co.kr/news/articleView.html?idxno=2430601" target="_blank" rel="noopener">마산 롯데백화점 공약, 김경수·박완수 &#39;따라하기 vs 핵심 놓쳐&#39; 공방</a>
         <span class="news-time">18 Ma</span>
       </div>
       <div class="news-item">
         <span class="news-tag tag-blue">국내</span>
-        <a class="news-headline news-link" href="https://www.kado.net/news/articleView.html?idxno=2050928" target="_blank" rel="noopener">육동한·정광열 춘천시장 후보 세번째 토론회 격돌</a>
+        <a class="news-headline news-link" href="https://www.mbceg.co.kr/post/136470" target="_blank" rel="noopener">삼척시장 선거 3파전, 일자리 창출·폐광 대책 쟁점화</a>
         <span class="news-time">18 Ma</span>
       </div>
       <div class="news-item">
         <span class="news-tag tag-blue">국내</span>
-        <a class="news-headline news-link" href="https://daily.hankooki.com/news/articleView.html?idxno=1368348" target="_blank" rel="noopener">삼성 파업, 국가경제 리스크로 부상하나…李정부 &#39;긴급조정권&#39; 주시</a>
+        <a class="news-headline news-link" href="https://www.ksmnews.co.kr/news/view.php?idx=605694" target="_blank" rel="noopener">포항시, 글로벌 푸드테크의 메카로 우뚝</a>
+        <span class="news-time">18 Ma</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag tag-blue">거시경제</span>
+        <a class="news-headline news-link" href="https://www.khan.co.kr/article/202605182037015" target="_blank" rel="noopener">증시로 뛰는 돈, 금리로 잡아라…은행권 ‘예금 사수 작전’</a>
         <span class="news-time">18 Ma</span>
       </div>
       <div class="news-item">
         <span class="news-tag tag-blue">국내</span>
-        <a class="news-headline news-link" href="https://futurechosun.com/?p=148958" target="_blank" rel="noopener">성장통 겪은 한국 임팩트 투자, 과제는 ‘질적 성장’</a>
+        <a class="news-headline news-link" href="https://www.megaeconomy.co.kr/news/newsview.php?ncode=1065612334090584" target="_blank" rel="noopener">전재수 부산시장 후보, 전세사기 대책위와 정책 협약…“2030 보증금 사...</a>
         <span class="news-time">18 Ma</span>
       </div>
       <div class="news-item">
         <span class="news-tag tag-blue">국내</span>
-        <a class="news-headline news-link" href="https://www.dailian.co.kr/news/view/1645764/?sc=Naver" target="_blank" rel="noopener">김병수, ‘생활교통 혁신’ 승부수… “출퇴근 30분 시대 열겠다”</a>
+        <a class="news-headline news-link" href="https://www.sisajournal.com/news/articleView.html?idxno=373285" target="_blank" rel="noopener">하헌기 &#39;추경호 복심&#39; 직격…&amp;quot;TK 행정통합 반대했는데 캠프 입으로?&amp;quot;</a>
         <span class="news-time">18 Ma</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag tag-blue">AI</span>
+        <a class="news-headline news-link" href="https://www.idaegu.co.kr/news/articleView.html?idxno=548429" target="_blank" rel="noopener">한전기술, 2년 연속 &#39;AI혁신 그랑프리 대상&#39;</a>
+        <span class="news-time">18 Ma</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag tag-blue">국내</span>
+        <a class="news-headline news-link" href="https://www.ajunews.com/view/20260518202656506" target="_blank" rel="noopener">한국중부발전 보령발전본부, 전통시장 활성화·에너지 절약 캠페인 전개</a>
+        <span class="news-time">18 Ma</span>
+      </div>
+      <div class="news-section-header" style="margin-top:10px">글로벌 뉴스</div>
+      <div class="news-item">
+        <span class="news-tag tag-purple">글로벌</span>
+        <a class="news-headline news-link" href="https://investinglive.com:443/news/irans-formin-spokesperson-says-process-of-talks-through-pakistani-mediation-is-ongoing-20260518/" target="_blank" rel="noopener">Iran ForMin Spokesperson says process of talks through Pakistani mediation is ongoing</a>
+        <span class="news-time">518T1</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag tag-purple">글로벌</span>
+        <a class="news-headline news-link" href="https://www.jugantor.com/international/1103516" target="_blank" rel="noopener">দেড় মাসের মধ্যে সর্বনিম্ন স্বর্ণের বাজার</a>
+        <span class="news-time">518T1</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag tag-purple">글로벌</span>
+        <a class="news-headline news-link" href="https://www.belegger.nl/Nieuws/864600/Europese-beurzen-doen-poging-tot-herstel.aspx" target="_blank" rel="noopener">Europese beurzen doen poging tot herstel</a>
+        <span class="news-time">518T1</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag tag-blue">AI</span>
+        <a class="news-headline news-link" href="https://www.marketscreener.com/news/bonds-spoil-the-ai-party-ce7f5adada8ff522" target="_blank" rel="noopener">Bonds spoil the AI party</a>
+        <span class="news-time">518T1</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag tag-purple">글로벌</span>
+        <a class="news-headline news-link" href="https://www.loktej.com/article/147181/indian-rupee-slipped-to-its-lowest-level-in-history-due" target="_blank" rel="noopener">अंतरराष्ट्रीय बाजारों में भारी उथल - पुथल से इतिहास के सबसे निचले स्तर पर फिसला भारतीय रुपया</a>
+        <span class="news-time">518T1</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag tag-blue">AI</span>
+        <a class="news-headline news-link" href="https://kdhnews.com/news/world/stocks-fall-and-oil-prices-gain-after-trump-warns-the-iran-clock-is-ticking/article_fa072545-55a8-5056-8c54-4bb01e5d3005.html" target="_blank" rel="noopener">Stocks fall and oil prices gain after Trump warns the Iran  clock is ticking</a>
+        <span class="news-time">518T1</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag tag-purple">글로벌</span>
+        <a class="news-headline news-link" href="https://www.finanznachrichten.de/nachrichten-2026-05/68523139-dax-holt-verluste-wieder-auf-stimmung-weiter-von-skepsis-gepraegt-003.htm" target="_blank" rel="noopener">Dax holt Verluste wieder auf - Stimmung weiter von Skepsis geprägt</a>
+        <span class="news-time">518T1</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag tag-purple">글로벌</span>
+        <a class="news-headline news-link" href="https://www.merimbulanewsweekly.com.au/story/9249131/global-stocks-in-retreat-and-bonds-wilt-as-oil-climbs/" target="_blank" rel="noopener">Global stocks in retreat and bonds wilt as oil climbs</a>
+        <span class="news-time">518T1</span>
       </div>
     </section>
 
@@ -859,8 +1108,8 @@ aria-disabled="true">
   const axisColor = '#64748B';
 
   // ---- Sparklines ----
-  const sparkData = [[2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5], [3.64, 3.64, 3.64, 3.64, 3.64, 3.64, 3.64, 3.64, 3.64, 3.64, 3.64, 3.64], [1447.6, 1450.6, 1453.6, 1456.6, 1459.6, 1462.6, 1465.6, 1468.6, 1471.6, 1474.6, 1477.6, 1480.6], [4.36, 4.37, 4.38, 4.39, 4.4, 4.41, 4.42, 4.43, 4.44, 4.45, 4.46, 4.47], [23.97, 23.36, 22.75, 22.14, 21.53, 20.92, 20.31, 19.7, 19.09, 18.48, 17.87, 17.26], [71.97, 74.66, 77.35, 80.04, 82.73, 85.42, 88.11, 90.8, 93.49, 96.18, 98.87, 101.56]];
-  const sparkColors = ["#10B981", "#10B981", "#94A3B8", "#3B82F6", "#F59E0B", "#F87171"];
+  const sparkData = [null, [2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5], [3.4, 3.35, 3.3, 3.25, 3.2, 3.15, 3.1, 3.05, 3.0, 2.95, 2.9, 2.85], [3.38, 3.35, 3.32, 3.29, 3.26, 3.23, 3.2, 3.17, 3.14, 3.11, 3.08, 3.05], [1447.6, 1450.6, 1453.6, 1456.6, 1459.6, 1462.6, 1465.6, 1468.6, 1471.6, 1474.6, 1477.6, 1480.6], [110.35, 110.96, 111.57, 112.18, 112.79, 113.4, 114.01, 114.62, 115.23, 115.84, 116.45, 117.06], [1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5], [-17.0, -12.0, -7.0, -2.0, 3.0, 8.0, 13.0, 18.0, 23.0, 28.0, 33.0, 38.0], null, [3.64, 3.64, 3.64, 3.64, 3.64, 3.64, 3.64, 3.64, 3.64, 3.64, 3.64, 3.64], [4.36, 4.37, 4.38, 4.39, 4.4, 4.41, 4.42, 4.43, 4.44, 4.45, 4.46, 4.47], [309.153, 311.267, 313.381, 315.495, 317.609, 319.723, 321.837, 323.951, 326.065, 328.179, 330.293, 332.407], [4.3, 4.3, 4.3, 4.3, 4.3, 4.3, 4.3, 4.3, 4.3, 4.3, 4.3, 4.3], [-14.5, -13.0, -11.5, -10.0, -8.5, -7.0, -5.5, -4.0, -2.5, -1.0, 0.5, 2.0], [117.7356, 117.7632, 117.7908, 117.8184, 117.846, 117.8736, 117.9012, 117.9288, 117.9564, 117.984, 118.0116, 118.0392], [8428.64, 8335.9, 8243.16, 8150.42, 8057.68, 7964.94, 7872.2, 7779.46, 7686.72, 7593.98, 7501.24, 7408.5], [30736.02, 30325.94, 29915.86, 29505.78, 29095.7, 28685.62, 28275.54, 27865.46, 27455.38, 27045.3, 26635.22, 26225.14], [23.97, 23.36, 22.75, 22.14, 21.53, 20.92, 20.31, 19.7, 19.09, 18.48, 17.87, 17.26], [71.97, 74.66, 77.35, 80.04, 82.73, 85.42, 88.11, 90.8, 93.49, 96.18, 98.87, 101.56], [77.18, 79.81, 82.44, 85.07, 87.7, 90.33, 92.96, 95.59, 98.22, 100.85, 103.48, 106.11], [17177.7, 16755.0645, 16332.429, 15909.7935, 15487.158, 15064.5225, 14641.887, 14219.2515, 13796.616, 13373.9805, 12951.345, 12528.7095], [1650.0, 1800.0, 1950.0, 2100.0, 2250.0, 2400.0, 2550.0, 2700.0, 2850.0, 3000.0, 3150.0, 3300.0]];
+  const sparkColors = [null, "#10B981", "#10B981", "#34D399", "#94A3B8", "#F59E0B", "#A78BFA", "#94A3B8", null, "#3B82F6", "#60A5FA", "#F59E0B", "#94A3B8", "#94A3B8", "#94A3B8", "#A78BFA", "#C084FC", "#F87171", "#FB923C", "#FDBA74", "#F97316", "#FCD34D"];
 
   sparkData.forEach((points, i) => {
     const el = document.getElementById('spark-' + i);
