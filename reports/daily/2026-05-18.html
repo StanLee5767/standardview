@@ -353,6 +353,15 @@
   .tag-purple { background: rgba(167, 139, 250, 0.16); color: #C4B5FD; }
   .tag-cyan   { background: rgba(34, 211, 238, 0.16);  color: #67E8F9; }
   .tag-gray   { background: rgba(148, 163, 184, 0.14); color: #CBD5E1; }
+  .news-link {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .news-link:hover {
+    color: var(--accent);
+    text-decoration: underline;
+  }
   .news-headline {
     flex: 1; font-size: 13px; color: var(--text);
     line-height: 1.5;
@@ -683,32 +692,66 @@ aria-disabled="true">
         <div class="comment-icon blue">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
         </div>
-        <h3 class="comment-title">IPO 및 Pre-IPO</h3>
-      </div>
-      <p class="comment-body">송호성 기아 대표 &amp;quot;보스턴다이나믹스 IPO, 2028년이 적기&amp;quot;</p>
-    </section>
-    <section class="card comment-card">
-      <div class="comment-head">
-        <div class="comment-icon blue">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-        </div>
-        <h3 class="comment-title">대규모 공급계약</h3>
-      </div>
-      <p class="comment-body">넥사다이내믹스, 美 제조 자동화 라인 54억 규모 수주... &#39;공정 가치 설...</p>
-    </section>
-    <section class="card comment-card">
-      <div class="comment-head">
-        <div class="comment-icon blue">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-        </div>
         <h3 class="comment-title">구조조정</h3>
       </div>
-      <p class="comment-body">[전북경제] 전주 자영업 8년만 동반하락…&#39;생존형 구조조정&#39; 시작되나</p>
+      <p class="comment-body">삼전 소액주주 단체 &amp;quot;성과급 노사 합의해도 무효 소송&amp;quot;</p>
+    </section>
+    <section class="card comment-card">
+      <div class="comment-head">
+        <div class="comment-icon blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+        </div>
+        <h3 class="comment-title">Deal</h3>
+      </div>
+      <p class="comment-body">5개월 만에 8.4조 푼 국민성장펀드…&#39;첨단산업 쏠림&#39; 성과와 과제는</p>
     </section>
   </div>
 
   <div class="bottom-grid">
 
+    <section class="card news-card">
+      <h3 class="panel-title">Macro News Brief</h3>
+      <div class="news-item">
+        <span class="news-tag tag-blue">국내</span>
+        <a class="news-headline news-link" href="https://www.kyeonggi.com/article/20260518580566" target="_blank" rel="noopener">박찬대 ‘직주락 청년주택’ 등 청년 공약 발표…공정클린선거운동본부...</a>
+        <span class="news-time">18 Ma</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag tag-blue">국내</span>
+        <a class="news-headline news-link" href="https://www.jbnews.com/news/articleView.html?idxno=1504293" target="_blank" rel="noopener">김정섭 공주시장 후보 &amp;quot;시민·언론인과 정책 사전공론화&amp;quot; …정책선거 주...</a>
+        <span class="news-time">18 Ma</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag tag-blue">국내</span>
+        <a class="news-headline news-link" href="https://www.gukjenews.com/news/articleView.html?idxno=3585314" target="_blank" rel="noopener">김정기 대구시장 권한대행, 5·18민주화운동 기념식 참석...달빛동맹 결...</a>
+        <span class="news-time">18 Ma</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag tag-blue">국내</span>
+        <a class="news-headline news-link" href="https://www.jjan.kr/article/20260518500403" target="_blank" rel="noopener">전북 수산식품업계 “글로벌 경쟁력 강화 위한 지원 절실”</a>
+        <span class="news-time">18 Ma</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag tag-blue">국내</span>
+        <a class="news-headline news-link" href="https://www.ajunews.com/view/20260518163739146" target="_blank" rel="noopener">[6·3 지방선거] 이철우·박용선 &amp;quot;포항이 커져야 경북이 커진다&amp;quot;…포항...</a>
+        <span class="news-time">18 Ma</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag tag-blue">국내</span>
+        <a class="news-headline news-link" href="https://www.ajunews.com/view/20260518143101873" target="_blank" rel="noopener">[6·3 지방선거]롯데백 마산점 공약 충돌·남동발전 수사의뢰...경남 선...</a>
+        <span class="news-time">18 Ma</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag tag-blue">국내</span>
+        <a class="news-headline news-link" href="https://www.meconomynews.com/news/articleView.html?idxno=131202" target="_blank" rel="noopener">삼전 소액주주 단체 &amp;quot;성과급 노사 합의해도 무효 소송&amp;quot;</a>
+        <span class="news-time">18 Ma</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag tag-blue">국내</span>
+        <a class="news-headline news-link" href="https://biz.heraldcorp.com/article/10740174?ref=naver" target="_blank" rel="noopener">“SIAL 혁신상이요? 아워홈 ‘청잎 김치’처럼 새로운 가치 제시” [식탐...</a>
+        <span class="news-time">18 Ma</span>
+      </div>
+    </section>
 
     <section class="card takeaway-card">
       <h3 class="panel-title">투자 및 딜 관점 시사점</h3>
