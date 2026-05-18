@@ -198,13 +198,23 @@
     letter-spacing: -0.01em;
   }
   .snapshot-meta { font-size: 11px; color: var(--text-subtle); letter-spacing: 0.04em; }
-  .metrics-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+  .metrics-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
   .metric {
     padding: 14px;
     background: var(--bg-1);
     border: 1px solid var(--border);
     border-radius: 10px;
     transition: border-color 0.18s ease, transform 0.18s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .metric-info { flex: 1; }
+  .spark {
+    display: block;
+    width: 100%;
+    height: 36px;
+    margin-top: 8px;
+    flex-shrink: 0;
   }
   .metric:hover { border-color: var(--border-strong); transform: translateY(-2px); }
   .metric-label {
@@ -585,11 +595,11 @@ aria-disabled="true">
         <h2 class="summary-title">2026-05-18 핵심 요약</h2>
       </div>
       <ul>
-        <li>국내 국고채 금리가 2023년 이후 최고치(10년물 연 4.0% 돌파)를 기록하며 금리 발작 국면 진입 — 한국은행 기준금리(2.50%)와의 괴리가 150bp에 달해 시장이 추가 긴축을 선반영하고 있음</li>
-        <li>원·달러 환율이 1,500원 위에서 고착화되면서 수입 인플레이션 → 추가 금리 인상 우려 → 자산시장 할인율 상승의 악순환 고리가 형성되고 있음</li>
-        <li>중동전쟁 장기화에 따른 호르무즈 공급 차질과 미·이란 협상 교착으로 원자재 공급 충격이 상존하며 글로벌 스태그플레이션 리스크를 지지</li>
-        <li>반면 AI 투자 사이클과 반도체 메모리 업황 강세는 코스피 이익 전망치를 끌어올리며 증시를 방어하는 유일한 펀더멘털 버팀목으로 작동 중</li>
-        <li>미 연준은 FOMC에서 완화 편향을 철회하고 2026년 내내 동결 또는 긴축 전환 가능성이 높아져 글로벌 금리 상단이 재설정되는 구간</li>
+        <li>글로벌 국채금리 쇼크: 미국 국채금리 급등이 글로벌 채권시장을 흔들고 있으며, 국고채 10년물이 연 4.0%를 돌파하는 등 국내 장기금리도 2년 6개월 만에 최고치를 경신했다.</li>
+        <li>한국은행 금리인상 재부상: 기준금리 2.50% 상황에서도 시장금리가 3%대 이상으로 선반영되며, 추가 인상 가능성이 부동산·크레딧 전반에 긴장을 고조시키고 있다.</li>
+        <li>반도체·AI 사이클은 반대 방향: 공급충격과 물가 압력에도 불구하고 메모리 업황 강세와 AI 투자 사이클이 코스피 이익 전망을 끌어올리며 시장 내부 분화가 심화되고 있다.</li>
+        <li>원/달러 1,500원 상회: 안전자산 선호 강화로 환율 고공 유지, 외국인 코스피 순매도 누적 100조원을 돌파했다.</li>
+        <li>호르무즈 불확실성 + G7 세계 불균형 논의: 미-이란 협상 교착으로 유가 공급 타이트가 지속되고 있으며, 트럼프-시진핑 회담 이후 글로벌 무역 구조 재편 논의가 G7 재무장관 회의로 이어지고 있다.</li>
       </ul>
     </section>
 
@@ -602,7 +612,7 @@ aria-disabled="true">
         <span class="status-chip s-ok">ECOS: OK</span>
         <span class="status-chip s-ok">FRED: OK</span>
       </div>
-      <p class="status-quality">국내 15건 · 글로벌 4건 · 품질: live</p>
+      <p class="status-quality">국내 14건 · 글로벌 7건 · 품질: live</p>
     </section>
 
     <section class="card snapshot">
@@ -621,7 +631,7 @@ aria-disabled="true">
 —              동결
             </span>
           </div>
-          <canvas class="spark" id="spark-1"></canvas>
+          <canvas class="spark" id="spark-1" style="height:36px;max-height:36px"></canvas>
         </div>
         <div class="metric">
           <div class="metric-label">
@@ -632,7 +642,7 @@ aria-disabled="true">
 ▼              -0.05
             </span>
           </div>
-          <canvas class="spark" id="spark-2"></canvas>
+          <canvas class="spark" id="spark-2" style="height:36px;max-height:36px"></canvas>
         </div>
         <div class="metric">
           <div class="metric-label">
@@ -643,7 +653,7 @@ aria-disabled="true">
 ▼              -0.03
             </span>
           </div>
-          <canvas class="spark" id="spark-3"></canvas>
+          <canvas class="spark" id="spark-3" style="height:36px;max-height:36px"></canvas>
         </div>
         <div class="metric">
           <div class="metric-label">
@@ -654,7 +664,7 @@ aria-disabled="true">
 ▲              +3.00
             </span>
           </div>
-          <canvas class="spark" id="spark-4"></canvas>
+          <canvas class="spark" id="spark-4" style="height:36px;max-height:36px"></canvas>
         </div>
         <div class="metric">
           <div class="metric-label">
@@ -665,7 +675,7 @@ aria-disabled="true">
 ▲              +0.61
             </span>
           </div>
-          <canvas class="spark" id="spark-5"></canvas>
+          <canvas class="spark" id="spark-5" style="height:36px;max-height:36px"></canvas>
         </div>
         <div class="metric">
           <div class="metric-label">
@@ -676,7 +686,7 @@ aria-disabled="true">
 ▼              ↓
             </span>
           </div>
-          <canvas class="spark" id="spark-6"></canvas>
+          <canvas class="spark" id="spark-6" style="height:36px;max-height:36px"></canvas>
         </div>
         <div class="metric">
           <div class="metric-label">
@@ -687,7 +697,7 @@ aria-disabled="true">
 ▲              +5.00
             </span>
           </div>
-          <canvas class="spark" id="spark-7"></canvas>
+          <canvas class="spark" id="spark-7" style="height:36px;max-height:36px"></canvas>
         </div>
         <div class="metrics-group-header">글로벌 지표</div>
         <div class="metric">
@@ -699,7 +709,7 @@ aria-disabled="true">
 —              동결
             </span>
           </div>
-          <canvas class="spark" id="spark-9"></canvas>
+          <canvas class="spark" id="spark-9" style="height:36px;max-height:36px"></canvas>
         </div>
         <div class="metric">
           <div class="metric-label">
@@ -710,7 +720,7 @@ aria-disabled="true">
 ▲              +0.01
             </span>
           </div>
-          <canvas class="spark" id="spark-10"></canvas>
+          <canvas class="spark" id="spark-10" style="height:36px;max-height:36px"></canvas>
         </div>
         <div class="metric">
           <div class="metric-label">
@@ -721,7 +731,7 @@ aria-disabled="true">
 ▲              +2.11
             </span>
           </div>
-          <canvas class="spark" id="spark-11"></canvas>
+          <canvas class="spark" id="spark-11" style="height:36px;max-height:36px"></canvas>
         </div>
         <div class="metric">
           <div class="metric-label">
@@ -732,7 +742,7 @@ aria-disabled="true">
 —              동결
             </span>
           </div>
-          <canvas class="spark" id="spark-12"></canvas>
+          <canvas class="spark" id="spark-12" style="height:36px;max-height:36px"></canvas>
         </div>
         <div class="metric">
           <div class="metric-label">
@@ -743,7 +753,7 @@ aria-disabled="true">
 ▲              +1.50
             </span>
           </div>
-          <canvas class="spark" id="spark-13"></canvas>
+          <canvas class="spark" id="spark-13" style="height:36px;max-height:36px"></canvas>
         </div>
         <div class="metric">
           <div class="metric-label">
@@ -754,7 +764,7 @@ aria-disabled="true">
 ▲              +0.03
             </span>
           </div>
-          <canvas class="spark" id="spark-14"></canvas>
+          <canvas class="spark" id="spark-14" style="height:36px;max-height:36px"></canvas>
         </div>
         <div class="metric">
           <div class="metric-label">
@@ -765,7 +775,7 @@ aria-disabled="true">
 ▼              -92.74
             </span>
           </div>
-          <canvas class="spark" id="spark-15"></canvas>
+          <canvas class="spark" id="spark-15" style="height:36px;max-height:36px"></canvas>
         </div>
         <div class="metric">
           <div class="metric-label">
@@ -776,7 +786,7 @@ aria-disabled="true">
 ▼              -410.08
             </span>
           </div>
-          <canvas class="spark" id="spark-16"></canvas>
+          <canvas class="spark" id="spark-16" style="height:36px;max-height:36px"></canvas>
         </div>
         <div class="metric">
           <div class="metric-label">
@@ -787,7 +797,7 @@ aria-disabled="true">
 ▼              -0.61
             </span>
           </div>
-          <canvas class="spark" id="spark-17"></canvas>
+          <canvas class="spark" id="spark-17" style="height:36px;max-height:36px"></canvas>
         </div>
         <div class="metric">
           <div class="metric-label">
@@ -798,7 +808,7 @@ aria-disabled="true">
 ▲              +2.69
             </span>
           </div>
-          <canvas class="spark" id="spark-18"></canvas>
+          <canvas class="spark" id="spark-18" style="height:36px;max-height:36px"></canvas>
         </div>
         <div class="metric">
           <div class="metric-label">
@@ -809,7 +819,7 @@ aria-disabled="true">
 ▲              +2.63
             </span>
           </div>
-          <canvas class="spark" id="spark-19"></canvas>
+          <canvas class="spark" id="spark-19" style="height:36px;max-height:36px"></canvas>
         </div>
         <div class="metric">
           <div class="metric-label">
@@ -820,7 +830,7 @@ aria-disabled="true">
 ▼              -422.64
             </span>
           </div>
-          <canvas class="spark" id="spark-20"></canvas>
+          <canvas class="spark" id="spark-20" style="height:36px;max-height:36px"></canvas>
         </div>
         <div class="metric">
           <div class="metric-label">
@@ -831,7 +841,7 @@ aria-disabled="true">
 ▲              +150.00
             </span>
           </div>
-          <canvas class="spark" id="spark-21"></canvas>
+          <canvas class="spark" id="spark-21" style="height:36px;max-height:36px"></canvas>
         </div>
       </div>
     </section>
@@ -907,9 +917,9 @@ aria-disabled="true">
         <div class="comment-icon blue">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
         </div>
-        <h3 class="comment-title">VC 투자유치 / JV 및 전략적 제휴</h3>
+        <h3 class="comment-title">Deal</h3>
       </div>
-      <p class="comment-body">[패트롤] 경기도청-경기도의회</p>
+      <p class="comment-body">산업통상부 국표원, 혁신성장 신기술(NET)·신제품(NEP) 선정...&amp;quot;글로벌 ...</p>
     </section>
     <section class="card comment-card">
       <div class="comment-head">
@@ -918,7 +928,25 @@ aria-disabled="true">
         </div>
         <h3 class="comment-title">Deal</h3>
       </div>
-      <p class="comment-body">유성구청장 공약 대결..&amp;quot;창업 펀드&#39; vs &#39;교도소 이전&#39;</p>
+      <p class="comment-body">지방선거 D-17 경북 표심 경쟁 본격화…도지사·교육감 후보들 민생·교...</p>
+    </section>
+    <section class="card comment-card">
+      <div class="comment-head">
+        <div class="comment-icon blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+        </div>
+        <h3 class="comment-title">Deal</h3>
+      </div>
+      <p class="comment-body">국민의힘 “이재명 사법 쿠데타, 5·18 파괴 범죄 세력 심판할 것”</p>
+    </section>
+    <section class="card comment-card">
+      <div class="comment-head">
+        <div class="comment-icon blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+        </div>
+        <h3 class="comment-title">Deal</h3>
+      </div>
+      <p class="comment-body">대구시, 5·18민주화운동 기념식 참석…달빛동맹으로 민주주의 가치 되...</p>
     </section>
   </div>
 
@@ -929,52 +957,52 @@ aria-disabled="true">
       <div class="news-section-header">국내 뉴스</div>
       <div class="news-item">
         <span class="news-tag tag-blue">국내</span>
-        <a class="news-headline news-link" href="https://www.hani.co.kr/arti/politics/bluehouse/1259290.html" target="_blank" rel="noopener">대통령도 삼전 긴급조정 시사 법원 “운영 멈추는 쟁의 안돼”</a>
+        <a class="news-headline news-link" href="http://www.econonews.co.kr/news/articleView.html?idxno=438475" target="_blank" rel="noopener">산업통상부 국표원, 혁신성장 신기술(NET)·신제품(NEP) 선정...&amp;quot;글로벌 ...</a>
         <span class="news-time">18 Ma</span>
       </div>
       <div class="news-item">
         <span class="news-tag tag-blue">국내</span>
-        <a class="news-headline news-link" href="http://www.yonhapnewstv.co.kr/news/AKR20260518205556Otd" target="_blank" rel="noopener">한일정상회담 앞두고…이 대통령, 경북 안동구시장서 저녁식사</a>
+        <a class="news-headline news-link" href="https://www.ekn.kr/web/view.php?key=20260518020455713" target="_blank" rel="noopener">지방선거 D-17 경북 표심 경쟁 본격화…도지사·교육감 후보들 민생·교...</a>
         <span class="news-time">18 Ma</span>
       </div>
       <div class="news-item">
         <span class="news-tag tag-blue">국내</span>
-        <a class="news-headline news-link" href="https://www.obsnews.co.kr/news/articleView.html?idxno=1524819" target="_blank" rel="noopener">[월드 e 브리핑] 중국, 4월 산업생산 4.1%↑·소매판매 0.2%↑</a>
+        <a class="news-headline news-link" href="http://www.breaknews.com/1208090" target="_blank" rel="noopener">국민의힘 “이재명 사법 쿠데타, 5·18 파괴 범죄 세력 심판할 것”</a>
         <span class="news-time">18 Ma</span>
       </div>
       <div class="news-item">
         <span class="news-tag tag-blue">국내</span>
-        <a class="news-headline news-link" href="https://www.polinews.co.kr/news/articleView.html?idxno=731612" target="_blank" rel="noopener">[6·3 지방선거] 이철우·박용선, &#39;포항 대도약 공동 비전&#39; 발표… &amp;quot;&#39;환동...</a>
+        <a class="news-headline news-link" href="http://www.breaknews.com/1208088" target="_blank" rel="noopener">대구시, 5·18민주화운동 기념식 참석…달빛동맹으로 민주주의 가치 되...</a>
         <span class="news-time">18 Ma</span>
       </div>
       <div class="news-item">
         <span class="news-tag tag-blue">국내</span>
-        <a class="news-headline news-link" href="https://www.news2day.co.kr/article/20260518500244" target="_blank" rel="noopener">[최기일 칼럼] 軍 방독면 입찰 계약 구조 개선해야</a>
+        <a class="news-headline news-link" href="https://www.goodkyung.com/news/articleView.html?idxno=287131" target="_blank" rel="noopener">&#39;GTX삼성역 철근 누락&#39; 지선 쟁점 부상⋯與 &amp;quot;오세훈 책임&amp;quot;, 野 &amp;quot;1차 책임...</a>
         <span class="news-time">18 Ma</span>
       </div>
       <div class="news-item">
         <span class="news-tag tag-blue">국내</span>
-        <a class="news-headline news-link" href="https://www.tjb.co.kr/news05/bodo/view/id/98377" target="_blank" rel="noopener">유성구청장 공약 대결..&amp;quot;창업 펀드&#39; vs &#39;교도소 이전&#39;</a>
+        <a class="news-headline news-link" href="http://www.breaknews.com/1208086" target="_blank" rel="noopener">추경호 &amp;quot;대구사회적경제 가치에 공감 시정에 제도화·구조화 적극 반영...</a>
         <span class="news-time">18 Ma</span>
       </div>
       <div class="news-item">
         <span class="news-tag tag-blue">국내</span>
-        <a class="news-headline news-link" href="https://www.tjb.co.kr/news05/bodo/view/id/98376" target="_blank" rel="noopener">(R)[충청의 선택]&amp;quot;지역 경제 회복 최대 화두&amp;quot;..서산시장 선거</a>
+        <a class="news-headline news-link" href="https://www.kwnews.co.kr/page/view/2026051850121800000" target="_blank" rel="noopener">“뭉쳐야 이긴다” 육동한-정광열 춘천시장 후보, 원팀 지지세 결집</a>
+        <span class="news-time">18 Ma</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag tag-blue">거시경제</span>
+        <a class="news-headline news-link" href="https://www.segye.com/newsView/20260518514948?OutUrl=naver" target="_blank" rel="noopener">글로벌 국채금리 ‘쇼크’… 증시·환율 새 뇌관 부상</a>
+        <span class="news-time">18 Ma</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag tag-blue">AI</span>
+        <a class="news-headline news-link" href="https://www.yna.co.kr/view/AKR20260518138251009?input=1195m" target="_blank" rel="noopener">중국 메모리 CXMT도 AI 타고 날았다…삼전·하닉 추격전(종합)</a>
         <span class="news-time">18 Ma</span>
       </div>
       <div class="news-item">
         <span class="news-tag tag-blue">국내</span>
-        <a class="news-headline news-link" href="https://www.ekn.kr/web/view.php?key=20260518026425742" target="_blank" rel="noopener">[패트롤] 경기도청-경기도의회</a>
-        <span class="news-time">18 Ma</span>
-      </div>
-      <div class="news-item">
-        <span class="news-tag tag-blue">국내</span>
-        <a class="news-headline news-link" href="https://www.news1.kr/local/kangwon/6170642" target="_blank" rel="noopener">춘천시장 토론회…육동한 &amp;quot;공무원 노력 폄하&amp;quot;vs정광열 &amp;quot;춘천 너무 정체...</a>
-        <span class="news-time">18 Ma</span>
-      </div>
-      <div class="news-item">
-        <span class="news-tag tag-blue">국내</span>
-        <a class="news-headline news-link" href="https://dgmbc.com/NewsArticle/840206" target="_blank" rel="noopener">장세용 구미시장 후보 &amp;quot;구미 경제 일으키겠다&amp;quot;</a>
+        <a class="news-headline news-link" href="https://www.segye.com/newsView/20260518515073?OutUrl=naver" target="_blank" rel="noopener">‘농산물 대량 판매’ 체면세운 美… ‘패권 대항마’ 존재감 키운 中</a>
         <span class="news-time">18 Ma</span>
       </div>
       <div class="news-section-header" style="margin-top:10px">글로벌 뉴스</div>
@@ -996,6 +1024,21 @@ aria-disabled="true">
       <div class="news-item">
         <span class="news-tag tag-purple">글로벌</span>
         <a class="news-headline news-link" href="https://www.jugantor.com/international/1103516" target="_blank" rel="noopener">দেড় মাসের মধ্যে সর্বনিম্ন স্বর্ণের বাজার</a>
+        <span class="news-time">518T1</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag tag-purple">글로벌</span>
+        <a class="news-headline news-link" href="http://www.soester-anzeiger.de/wirtschaft/donald-trump-china-gipfel-usa-peking-xi-jinping-taiwan-iran-krieg-waffen-hormus-ergebnis-wirtschaft-zr-94311311.html" target="_blank" rel="noopener">China - Gipfel : Rätsel um Ergebnis – aber Trump feiert sich selbst</a>
+        <span class="news-time">518T1</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag tag-purple">글로벌</span>
+        <a class="news-headline news-link" href="https://finans.cnnturk.com/finans-haberler/galeri/akaryakit-fiyatlari-18-mayis-benzin-ve-motorine-indirim-var-mi-lpg-litre-fiyati-kac-petrol-fiyatlarinda-kritik-hafta-3423381" target="_blank" rel="noopener">AKARYAKIT FİYATLARI 18 MAYIS : Benzin ve Motorine İndirim Var Mı ? LPG Litre Fiyatı Kaç ? Petrol Fiyatlarında Kritik Hafta !</a>
+        <span class="news-time">518T1</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag tag-purple">글로벌</span>
+        <a class="news-headline news-link" href="https://www.bluewin.ch/it/attualita/borsa-economia/economia-svizzera-ha-registrato-un-buon-inizio-di-anno-3237398.html" target="_blank" rel="noopener">Leconomia svizzera ha registrato un buon inizio di 2026</a>
         <span class="news-time">518T1</span>
       </div>
     </section>
@@ -1096,6 +1139,19 @@ aria-disabled="true">
     if (!el || !points || points.length === 0) return;
     const color = sparkColors[i] || '#3B82F6';
 
+    // Y축 범위: 데이터 범위의 ±20% padding — 스파이크 방지
+    const validPts = points.filter(v => v != null && isFinite(v));
+    if (validPts.length === 0) return;
+    const minV = Math.min(...validPts);
+    const maxV = Math.max(...validPts);
+    const range = maxV - minV || Math.abs(maxV) * 0.1 || 0.01;
+    const yMin = minV - range * 0.15;
+    const yMax = maxV + range * 0.15;
+
+    // 캔버스 높이 강제 고정
+    el.style.height = '36px';
+    el.style.maxHeight = '36px';
+
     new Chart(el, {
       type: 'line',
       data: {
@@ -1108,7 +1164,7 @@ aria-disabled="true">
             const { ctx: c, chartArea } = chart;
             if (!chartArea) return color + '20';
             const grad = c.createLinearGradient(0, chartArea.top, 0, chartArea.bottom);
-            grad.addColorStop(0, color + '40');
+            grad.addColorStop(0, color + '30');
             grad.addColorStop(1, color + '00');
             return grad;
           },
@@ -1123,8 +1179,11 @@ aria-disabled="true">
         responsive: true,
         maintainAspectRatio: false,
         plugins: { legend: { display: false }, tooltip: { enabled: false } },
-        scales: { x: { display: false }, y: { display: false } },
-        animation: { duration: 600 },
+        scales: {
+          x: { display: false },
+          y: { display: false, min: yMin, max: yMax },
+        },
+        animation: { duration: 400 },
       }
     });
   });
