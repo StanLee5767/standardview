@@ -535,11 +535,82 @@ aria-disabled="true">
         <h2 class="summary-title">2026-05-18 핵심 요약</h2>
       </div>
       <ul>
-        <li>한국 기준금리 2.5%</li>
-        <li>미국 기준금리 3.64%</li>
+        <li>한국 기준금리 2.5% — 동결 기조</li>
+        <li>미국 기준금리 3.64% / 미국 10Y 4.47% — Fed 완화 사이클 국면</li>
+        <li>원/달러 1,481원 — 달러 강세 지속</li>
+        <li>WTI 유가 $101.6 / 금 $3300 — 원자재 ↑ 흐름</li>
+        <li>VIX 17.3 — 보통 수준</li>
       </ul>
     </section>
 
+    <section class="card snapshot">
+      <div class="snapshot-header">
+        <h2 class="snapshot-title">Macro Snapshot</h2>
+        <span class="snapshot-meta">기준: 전일 대비</span>
+      </div>
+      <div class="metrics-grid">
+        <div class="metric">
+          <div class="metric-label">한국 기준금리</div>
+          <div class="metric-row">
+            <span class="metric-value">2.5%</span>
+            <span class="metric-change flat">
+–동결
+            </span>
+          </div>
+          <div class="metric-spark"><canvas id="spark-0"></canvas></div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">미국 기준금리</div>
+          <div class="metric-row">
+            <span class="metric-value">3.64%</span>
+            <span class="metric-change flat">
+–동결
+            </span>
+          </div>
+          <div class="metric-spark"><canvas id="spark-1"></canvas></div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">USD/KRW</div>
+          <div class="metric-row">
+            <span class="metric-value">1,480.6</span>
+            <span class="metric-change up">
+▲+3.00
+            </span>
+          </div>
+          <div class="metric-spark"><canvas id="spark-2"></canvas></div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">미국 10Y</div>
+          <div class="metric-row">
+            <span class="metric-value">4.47%</span>
+            <span class="metric-change up">
+▲+0.01
+            </span>
+          </div>
+          <div class="metric-spark"><canvas id="spark-3"></canvas></div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">VIX</div>
+          <div class="metric-row">
+            <span class="metric-value">17.26</span>
+            <span class="metric-change down">
+▼-0.61
+            </span>
+          </div>
+          <div class="metric-spark"><canvas id="spark-4"></canvas></div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">WTI 유가</div>
+          <div class="metric-row">
+            <span class="metric-value">$101.6</span>
+            <span class="metric-change up">
+▲+2.69
+            </span>
+          </div>
+          <div class="metric-spark"><canvas id="spark-5"></canvas></div>
+        </div>
+      </div>
+    </section>
   </div>
 
   <div class="mid-grid">
@@ -551,7 +622,7 @@ aria-disabled="true">
       <div class="chart-legend">
         <span class="legend-item"><span class="legend-dot" style="background:#3B82F6"></span>미국 10Y (좌)</span>
         <span class="legend-item"><span class="legend-dot" style="background:#22D3EE"></span>한국 기준금리 (좌)</span>
-        <span class="legend-item"><span class="legend-dot" style="background:#A78BFA"></span>원/달러 환율 (우)</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#A78BFA"></span>원/달러 (우)</span>
       </div>
       <div class="chart-body"><canvas id="chart-rates"></canvas></div>
       <div class="chart-footer">출처: Bloomberg, 한국은행, FRED</div>
@@ -562,8 +633,8 @@ aria-disabled="true">
         <h3 class="chart-title">물가와 경기 모멘텀</h3>
       </div>
       <div class="chart-legend">
-        <span class="legend-item"><span class="legend-dot" style="background:#F59E0B"></span>미국 CPI YoY (%)</span>
-        <span class="legend-item"><span class="legend-dot" style="background:#10B981"></span>한국 CPI YoY (%)</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#F59E0B"></span>미국 CPI (지수)</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#10B981"></span>한국 CPI (지수)</span>
       </div>
       <div class="chart-body"><canvas id="chart-inflation"></canvas></div>
       <div class="chart-footer">출처: 통계청, BLS, S&amp;P Global</div>
@@ -589,24 +660,42 @@ aria-disabled="true">
             <text x="32"  y="58" font-family="Noto Sans KR" font-size="11" fill="#94A3B8">공포</text>
             <text x="120" y="34" font-family="Noto Sans KR" font-size="11" fill="#94A3B8" text-anchor="middle">중립</text>
             <text x="208" y="58" font-family="Noto Sans KR" font-size="11" fill="#94A3B8" text-anchor="end">탐욕</text>
-            <g transform="translate(120, 130) rotate(-86.40)">
+            <g transform="translate(120, 130) rotate(-79.20)">
               <line x1="0" y1="0" x2="0" y2="-86" stroke="#E8ECF4" stroke-width="2.5" stroke-linecap="round"/>
               <circle cx="0" cy="0" r="6" fill="#E8ECF4"/>
               <circle cx="0" cy="0" r="3" fill="#0B1220"/>
             </g>
           </svg>
           <div class="gauge-value-overlay">
-            <div class="gauge-value neutral">52</div>
-            <div class="gauge-caption">Neutral</div>
+            <div class="gauge-value neutral">56</div>
+            <div class="gauge-caption">Greed</div>
           </div>
         </div>
       </div>
       <div class="gauge-scale"><span>0</span><span>100</span></div>
-      <div class="chart-footer">출처: 종합 지표 기반 추정</div>
+      <div class="chart-footer">출처: VIX 역산 추정</div>
     </section>
   </div>
 
   <div class="commentary-grid">
+    <section class="card comment-card">
+      <div class="comment-head">
+        <div class="comment-icon blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+        </div>
+        <h3 class="comment-title">IPO 및 Pre-IPO</h3>
+      </div>
+      <p class="comment-body">송호성 기아 대표 &amp;quot;보스턴다이나믹스 IPO, 2028년이 적기&amp;quot;</p>
+    </section>
+    <section class="card comment-card">
+      <div class="comment-head">
+        <div class="comment-icon blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+        </div>
+        <h3 class="comment-title">대규모 공급계약</h3>
+      </div>
+      <p class="comment-body">넥사다이내믹스, 美 제조 자동화 라인 54억 규모 수주... &#39;공정 가치 설...</p>
+    </section>
     <section class="card comment-card">
       <div class="comment-head">
         <div class="comment-icon blue">
@@ -631,7 +720,7 @@ aria-disabled="true">
           <span class="takeaway-check">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
           </span>
-          <span class="takeaway-text">금리 동결 기조 지속 → LBO 레버리지 보수적 유지 권고</span>
+          <span class="takeaway-text">금리 동결 기조 → LBO 레버리지 보수적 유지 권고</span>
         </li>
         <li class="takeaway-item">
           <span class="takeaway-check">
@@ -643,14 +732,14 @@ aria-disabled="true">
           <span class="takeaway-check">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
           </span>
-          <span class="takeaway-text">2차전지 밸류체인 구조조정 본격화 — 선별적 피킹 전략 권고</span>
+          <span class="takeaway-text">원자재 가격 변동성 확대 — 에너지 비용 민감 포트폴리오 헤지 검토</span>
         </li>
       </ul>
     </section>
 
     <section class="card deploy-card">
       <h3 class="panel-title">Standard View 자동화</h3>
-      <p class="deploy-desc">매일 HTML로 생성되어 GitHub Pages에 배포되며, Telegram으로 링크가 공유됩니다.</p>
+      <p class="deploy-desc">매일 HTML로 생성되어 GitHub Pages에 배포, Telegram으로 링크 공유.</p>
       <div class="deploy-steps">
         <div class="step done">
           <span class="step-num">1</span>
@@ -709,8 +798,8 @@ aria-disabled="true">
   const axisColor = '#64748B';
 
   // ---- Sparklines ----
-  const sparkData = [];
-  const sparkColors = [];
+  const sparkData = [[2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5], [3.64, 3.64, 3.64, 3.64, 3.64, 3.64, 3.64, 3.64, 3.64, 3.64, 3.64, 3.64], [1447.6, 1450.6, 1453.6, 1456.6, 1459.6, 1462.6, 1465.6, 1468.6, 1471.6, 1474.6, 1477.6, 1480.6], [4.36, 4.37, 4.38, 4.39, 4.4, 4.41, 4.42, 4.43, 4.44, 4.45, 4.46, 4.47], [23.97, 23.36, 22.75, 22.14, 21.53, 20.92, 20.31, 19.7, 19.09, 18.48, 17.87, 17.26], [71.97, 74.66, 77.35, 80.04, 82.73, 85.42, 88.11, 90.8, 93.49, 96.18, 98.87, 101.56]];
+  const sparkColors = ["#10B981", "#10B981", "#94A3B8", "#3B82F6", "#F59E0B", "#F87171"];
 
   sparkData.forEach((points, i) => {
     const el = document.getElementById('spark-' + i);
@@ -751,7 +840,7 @@ aria-disabled="true">
   });
 
   // ---- Rates & FX ----
-  const ratesData = {"labels": ["2025-11", "2025-12", "2026-01", "2026-02", "2026-03", "2026-04", "2026-05"], "series": [{"axis": "y", "color": "#3B82F6", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], "label": "\ubbf8\uad6d 10Y (\uc88c)"}, {"axis": "y", "color": "#22D3EE", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], "label": "\ud55c\uad6d \uae30\uc900\uae08\ub9ac (\uc88c)"}, {"axis": "y1", "color": "#A78BFA", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], "label": "\uc6d0/\ub2ec\ub7ec \ud658\uc728 (\uc6b0)"}], "source": "Bloomberg, \ud55c\uad6d\uc740\ud589, FRED", "title": "\uae08\ub9ac \u0026 \ud658\uc728 \ucd94\uc774", "y_left_label": "(%)", "y_right_label": "(\uc6d0)"};
+  const ratesData = {"labels": ["2025-11", "2025-12", "2026-01", "2026-02", "2026-03", "2026-04", "2026-05"], "series": [{"axis": "y", "color": "#3B82F6", "data": [4.41, 4.42, 4.43, 4.44, 4.45, 4.46, 4.47], "label": "\ubbf8\uad6d 10Y (\uc88c)"}, {"axis": "y", "color": "#22D3EE", "data": [2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5], "label": "\ud55c\uad6d \uae30\uc900\uae08\ub9ac (\uc88c)"}, {"axis": "y1", "color": "#A78BFA", "data": [1462.6, 1465.6, 1468.6, 1471.6, 1474.6, 1477.6, 1480.6], "label": "\uc6d0/\ub2ec\ub7ec (\uc6b0)"}], "source": "Bloomberg, \ud55c\uad6d\uc740\ud589, FRED", "title": "\uae08\ub9ac \u0026 \ud658\uc728 \ucd94\uc774", "y_left_label": "(%)", "y_right_label": "(\uc6d0)"};
   if (ratesData && ratesData.labels) {
     new Chart(document.getElementById('chart-rates'), {
       type: 'line',
@@ -803,7 +892,7 @@ aria-disabled="true">
   }
 
   // ---- Inflation & PMI ----
-  const infData = {"labels": ["2025-11", "2025-12", "2026-01", "2026-02", "2026-03", "2026-04", "2026-05"], "series": [{"color": "#F59E0B", "label": "\ubbf8\uad6d CPI YoY (%)"}, {"color": "#10B981", "label": "\ud55c\uad6d CPI YoY (%)"}], "source": "\ud1b5\uacc4\uccad, BLS, S\u0026P Global", "title": "\ubb3c\uac00\uc640 \uacbd\uae30 \ubaa8\uba58\ud140"};
+  const infData = {"labels": ["2025-11", "2025-12", "2026-01", "2026-02", "2026-03", "2026-04", "2026-05"], "series": [{"color": "#F59E0B", "data": [319.723, 321.837, 323.951, 326.065, 328.179, 330.293, 332.407], "label": "\ubbf8\uad6d CPI (\uc9c0\uc218)"}, {"color": "#10B981", "data": [113.4, 114.01, 114.62, 115.23, 115.84, 116.45, 117.06], "label": "\ud55c\uad6d CPI (\uc9c0\uc218)"}], "source": "\ud1b5\uacc4\uccad, BLS, S\u0026P Global", "title": "\ubb3c\uac00\uc640 \uacbd\uae30 \ubaa8\uba58\ud140"};
   if (infData && infData.labels) {
     new Chart(document.getElementById('chart-inflation'), {
       data: {
