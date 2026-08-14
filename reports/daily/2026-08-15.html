@@ -1,0 +1,1691 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Standard View — Daily Macro Brief · 2026년 8월 15일 (토)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg-0: #060A14;
+    --bg-1: #0B1220;
+    --bg-2: #0F1729;
+    --surface: rgba(20, 28, 48, 0.6);
+    --surface-2: rgba(28, 38, 60, 0.5);
+    --border: rgba(255, 255, 255, 0.08);
+    --border-strong: rgba(255, 255, 255, 0.14);
+    --text: #E8ECF4;
+    --text-muted: #94A3B8;
+    --text-subtle: #64748B;
+    --text-dim: #475569;
+    --accent: #3B82F6;
+    --accent-soft: rgba(59, 130, 246, 0.12);
+    --cyan: #22D3EE;
+    --green: #10B981;
+    --red: #F87171;
+    --amber: #F59E0B;
+    --purple: #A78BFA;
+    --radius: 14px;
+    --radius-sm: 8px;
+  }
+
+  html, body {
+    background: var(--bg-0);
+    color: var(--text);
+    font-family: 'Noto Sans KR', 'IBM Plex Sans', -apple-system, sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 1200px 800px at 15% -10%, rgba(59, 130, 246, 0.08), transparent 60%),
+      radial-gradient(ellipse 1000px 600px at 90% 110%, rgba(167, 139, 250, 0.06), transparent 60%),
+      linear-gradient(180deg, #060A14 0%, #0A0F1E 100%);
+    z-index: -2;
+    pointer-events: none;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .container { max-width: 1440px; margin: 0 auto; padding: 28px 32px 40px; }
+
+  .num { font-family: 'IBM Plex Sans', sans-serif; font-variant-numeric: tabular-nums; }
+  .mono { font-family: 'IBM Plex Mono', monospace; font-variant-numeric: tabular-nums; }
+
+  /* HEADER */
+  .header {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    gap: 32px; margin-bottom: 28px;
+  }
+  .header-left { flex: 1; min-width: 0; }
+  .brand-row { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+  .logo {
+    width: 32px; height: 32px; border-radius: 8px;
+    background: linear-gradient(135deg, #3B82F6, #6366F1);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 700; font-size: 14px; color: #fff;
+    letter-spacing: -0.02em;
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
+  }
+  .brand-text {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.18em;
+    color: var(--text-muted); text-transform: uppercase;
+  }
+  .title {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 38px; font-weight: 700;
+    letter-spacing: -0.025em; line-height: 1.1;
+    color: var(--text); margin-bottom: 12px;
+  }
+  .title-meta {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 13px; color: var(--text-muted);
+  }
+  .date-pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px; font-weight: 600; color: var(--accent);
+    letter-spacing: 0.02em;
+  }
+  .date-pill svg { width: 14px; height: 14px; opacity: 0.9; }
+
+  .header-right {
+    display: flex; flex-direction: column; align-items: flex-end; gap: 10px;
+    flex-shrink: 0;
+  }
+  .action-buttons { display: flex; gap: 10px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 11px 18px; border-radius: 10px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 13px; font-weight: 600;
+    text-decoration: none; cursor: pointer;
+    border: 1px solid var(--border-strong);
+    background: var(--surface); color: var(--text);
+    transition: all 0.18s ease;
+    backdrop-filter: blur(8px);
+  }
+  .btn:hover { border-color: rgba(255, 255, 255, 0.25); transform: translateY(-1px); }
+  .btn.primary {
+    background: linear-gradient(135deg, #3B82F6, #2563EB);
+    border-color: transparent;
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.35);
+  }
+  .btn.primary:hover { box-shadow: 0 8px 24px rgba(59, 130, 246, 0.45); }
+  .btn svg { width: 15px; height: 15px; }
+  .btn[aria-disabled="true"] { opacity: 0.5; cursor: not-allowed; pointer-events: none; }
+  .url-pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 8px 12px; border-radius: 8px;
+    background: var(--surface-2); border: 1px solid var(--border);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; color: var(--text-muted);
+    max-width: 360px;
+  }
+  .url-pill .path { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .url-pill svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.7; }
+
+  /* TOP ROW */
+  .top-grid {
+    display: grid; grid-template-columns: 360px 1fr;
+    gap: 16px; margin-bottom: 16px;
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    backdrop-filter: blur(10px);
+  }
+
+  .summary { padding: 22px 24px; }
+  .summary-header { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+  .summary-icon {
+    width: 32px; height: 32px; border-radius: 8px;
+    background: rgba(59, 130, 246, 0.15);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--accent);
+  }
+  .summary-icon svg { width: 16px; height: 16px; }
+  .summary-title { font-size: 15px; font-weight: 600; color: var(--text); letter-spacing: -0.01em; }
+  .summary ul { list-style: none; }
+  .summary li {
+    position: relative; padding: 9px 0 9px 18px;
+    font-size: 13.5px; line-height: 1.6; color: var(--text);
+    border-bottom: 1px solid var(--border);
+  }
+  .summary li:last-child { border-bottom: none; padding-bottom: 0; }
+  .summary li:first-child { padding-top: 0; }
+  .summary li::before {
+    content: ''; position: absolute;
+    left: 0; top: 16px; width: 5px; height: 5px;
+    background: var(--accent); border-radius: 50%;
+  }
+  .summary li:first-child::before { top: 7px; }
+
+  .snapshot { padding: 22px 24px; }
+  .snapshot-header {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 18px;
+  }
+  .snapshot-title {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 15px; font-weight: 600; color: var(--text);
+    letter-spacing: -0.01em;
+  }
+  .snapshot-meta { font-size: 11px; color: var(--text-subtle); letter-spacing: 0.04em; }
+  .metrics-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+  .metric {
+    padding: 14px;
+    background: var(--bg-1);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    transition: border-color 0.18s ease, transform 0.18s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .metric-info { flex: 1; }
+  .spark {
+    display: block;
+    width: 100%;
+    height: 36px;
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+  .metric:hover { border-color: var(--border-strong); transform: translateY(-2px); }
+  .metric-label {
+    font-size: 11px; font-weight: 500; color: var(--text-muted);
+    margin-bottom: 6px; white-space: nowrap;
+  }
+  .metric-row {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 6px; margin-bottom: 6px;
+  }
+  .metric-value {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 22px; font-weight: 700; color: var(--text);
+    letter-spacing: -0.02em; line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .metric-change {
+    display: inline-flex; align-items: center; gap: 2px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; font-weight: 600; white-space: nowrap;
+  }
+  .metric-change.up { color: var(--red); }
+  .metric-change.down { color: var(--green); }
+  .metric-change.flat { color: var(--text-muted); }
+  .metric-spark { height: 36px; margin-top: 4px; position: relative; }
+  .metric-spark canvas { display: block; }
+
+  /* MID ROW */
+  .mid-grid {
+    display: grid; grid-template-columns: 1.15fr 1.15fr 0.85fr;
+    gap: 16px; margin-bottom: 16px;
+  }
+  .chart-card { padding: 20px 22px; }
+  .chart-head {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 16px;
+  }
+  .chart-title {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 14px; font-weight: 600; color: var(--text);
+    letter-spacing: -0.005em;
+  }
+  .chart-legend { display: flex; gap: 14px; font-size: 11px; color: var(--text-muted); }
+  .legend-item { display: inline-flex; align-items: center; gap: 5px; }
+  .legend-dot { width: 8px; height: 8px; border-radius: 50%; }
+  .chart-body { height: 200px; position: relative; margin-top: 10px; }
+  .chart-footer { margin-top: 10px; font-size: 10.5px; color: var(--text-subtle); letter-spacing: 0.02em; }
+
+  /* GAUGE */
+  .gauge-card { padding: 20px 22px; display: flex; flex-direction: column; }
+  .gauge-wrap { flex: 1; display: flex; align-items: center; justify-content: center; padding: 8px 0; }
+  .gauge-svg-wrap { position: relative; width: 100%; max-width: 280px; }
+  .gauge-svg-wrap svg { width: 100%; display: block; }
+  .gauge-value-overlay {
+    position: absolute; bottom: 12%; left: 50%;
+    transform: translateX(-50%); text-align: center;
+  }
+  .gauge-value {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 38px; font-weight: 700;
+    line-height: 1; font-variant-numeric: tabular-nums;
+  }
+  .gauge-value.fear { color: var(--red); }
+  .gauge-value.greed { color: var(--green); }
+  .gauge-value.neutral { color: var(--amber); }
+  .gauge-caption {
+    margin-top: 6px; font-size: 11px; font-weight: 500;
+    color: var(--text-muted); letter-spacing: 0.04em;
+  }
+  .gauge-scale {
+    display: flex; justify-content: space-between; margin-top: 4px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; color: var(--text-subtle);
+  }
+
+  /* COMMENTARY */
+  .commentary-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 16px; margin-bottom: 16px;
+  }
+  .comment-card {
+    padding: 20px 22px;
+    transition: transform 0.18s ease, border-color 0.18s ease;
+  }
+  .comment-card:hover { border-color: var(--border-strong); transform: translateY(-2px); }
+  .comment-head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .comment-icon {
+    width: 34px; height: 34px; border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .comment-icon.blue   { background: rgba(59, 130, 246, 0.14);  color: var(--accent); border: 1px solid rgba(59, 130, 246, 0.28); }
+  .comment-icon.green  { background: rgba(16, 185, 129, 0.14);  color: var(--green);  border: 1px solid rgba(16, 185, 129, 0.28); }
+  .comment-icon.red    { background: rgba(248, 113, 113, 0.14); color: var(--red);    border: 1px solid rgba(248, 113, 113, 0.28); }
+  .comment-icon.cyan   { background: rgba(34, 211, 238, 0.14);  color: var(--cyan);   border: 1px solid rgba(34, 211, 238, 0.28); }
+  .comment-icon.amber  { background: rgba(245, 158, 11, 0.14);  color: var(--amber);  border: 1px solid rgba(245, 158, 11, 0.28); }
+  .comment-icon.purple { background: rgba(167, 139, 250, 0.14); color: var(--purple); border: 1px solid rgba(167, 139, 250, 0.28); }
+  .comment-icon svg { width: 16px; height: 16px; }
+  .comment-title {
+    font-size: 15px; font-weight: 600; color: var(--text);
+    letter-spacing: -0.005em;
+  }
+  .comment-body {
+    font-size: 13px; color: var(--text-muted);
+    line-height: 1.6; margin-bottom: 14px;
+  }
+  .comment-link {
+    display: inline-flex; align-items: center; gap: 4px;
+    color: var(--accent); font-size: 12px; font-weight: 600;
+    text-decoration: none;
+  }
+  .comment-link:hover { color: #60A5FA; }
+  .comment-link svg { width: 12px; height: 12px; }
+
+  /* BOTTOM */
+  .bottom-grid {
+    display: grid; grid-template-columns: 1.05fr 1.25fr 0.9fr;
+    gap: 16px;
+  }
+  .news-card, .takeaway-card, .deploy-card { padding: 22px 24px; }
+
+  .panel-title {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 15px; font-weight: 600; color: var(--text);
+    margin-bottom: 16px; letter-spacing: -0.005em;
+  }
+
+  .news-item {
+    display: flex; align-items: center; gap: 12px;
+    padding: 11px 0; border-bottom: 1px solid var(--border);
+  }
+  .news-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .news-item:first-child { padding-top: 0; }
+  .news-tag {
+    flex-shrink: 0;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 10.5px; font-weight: 700;
+    padding: 4px 9px; border-radius: 5px;
+    min-width: 52px; text-align: center;
+    letter-spacing: 0.02em;
+  }
+  .tag-blue   { background: rgba(59, 130, 246, 0.16);  color: #93C5FD; }
+  .tag-green  { background: rgba(16, 185, 129, 0.16);  color: #6EE7B7; }
+  .tag-red    { background: rgba(248, 113, 113, 0.16); color: #FCA5A5; }
+  .tag-amber  { background: rgba(245, 158, 11, 0.16);  color: #FCD34D; }
+  .tag-purple { background: rgba(167, 139, 250, 0.16); color: #C4B5FD; }
+  .tag-cyan   { background: rgba(34, 211, 238, 0.16);  color: #67E8F9; }
+  .tag-gray   { background: rgba(148, 163, 184, 0.14); color: #CBD5E1; }
+  .news-link {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .news-link:hover {
+    color: var(--accent);
+    text-decoration: underline;
+  }
+  .news-headline {
+    flex: 1; font-size: 13px; color: var(--text);
+    line-height: 1.5;
+    overflow: hidden; text-overflow: ellipsis;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  }
+  .news-time {
+    flex-shrink: 0; font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; color: var(--text-subtle);
+  }
+
+  /* ── Metric group headers & badge ───────────── */
+  .metrics-group-header {
+    grid-column: 1 / -1;
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: #64748B;
+    padding: 6px 0 2px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .metric-badge {
+    font-size: 9px;
+    background: rgba(148,163,184,0.12);
+    color: #64748B;
+    border-radius: 3px;
+    padding: 1px 4px;
+    margin-left: 3px;
+    vertical-align: middle;
+  }
+  /* ── Data Source Status card ────────────────── */
+  .status-grid {
+    display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px;
+  }
+  .status-chip {
+    font-size: 11px; padding: 2px 9px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: #94A3B8;
+  }
+  .status-chip.s-ok { border-color: rgba(16,185,129,0.4); color: #10B981; }
+  .status-chip.s-missing { border-color: rgba(245,158,11,0.35); color: #F59E0B; }
+  .status-quality { font-size: 11px; color: #64748B; margin-top: 6px; }
+  /* ── News section headers ───────────────────── */
+  .news-section-header {
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: #64748B; padding: 8px 0 4px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    margin-bottom: 4px;
+  }
+
+  .takeaway-card { position: relative; overflow: hidden; }
+  .takeaway-card .panel-title { position: relative; z-index: 1; }
+  .takeaway-bg {
+    position: absolute; right: -10px; bottom: -10px;
+    width: 160px; height: 160px;
+    opacity: 0.07; pointer-events: none;
+    color: var(--text);
+  }
+  .takeaway-list { list-style: none; position: relative; z-index: 1; }
+  .takeaway-item {
+    display: flex; gap: 10px; padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .takeaway-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .takeaway-item:first-child { padding-top: 0; }
+  .takeaway-check {
+    flex-shrink: 0; width: 18px; height: 18px;
+    border-radius: 5px;
+    background: rgba(16, 185, 129, 0.18);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--green); margin-top: 1px;
+  }
+  .takeaway-check svg { width: 11px; height: 11px; }
+  .takeaway-text { font-size: 13px; color: var(--text); line-height: 1.55; }
+  .takeaway-text strong { color: var(--text); font-weight: 600; }
+
+  .deploy-card { display: flex; flex-direction: column; }
+  .deploy-desc {
+    font-size: 12.5px; color: var(--text-muted);
+    line-height: 1.6; margin-bottom: 16px;
+  }
+  .deploy-steps {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    align-items: center; gap: 6px;
+    margin-top: auto;
+  }
+  .step {
+    text-align: center; padding: 14px 8px 12px;
+    background: var(--bg-1); border: 1px solid var(--border);
+    border-radius: 10px; position: relative;
+  }
+  .step.done {
+    border-color: rgba(16, 185, 129, 0.4);
+    background: rgba(16, 185, 129, 0.06);
+  }
+  .step-num {
+    position: absolute; top: -8px; left: 50%;
+    transform: translateX(-50%);
+    width: 20px; height: 20px; border-radius: 50%;
+    background: var(--accent); color: #fff;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 10px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .step.done .step-num { background: var(--green); }
+  .step-icon {
+    width: 22px; height: 22px;
+    margin: 6px auto;
+    color: var(--text-muted);
+  }
+  .step.done .step-icon { color: var(--green); }
+  .step-icon svg { width: 100%; height: 100%; }
+  .step-label {
+    font-size: 10.5px; font-weight: 500;
+    color: var(--text-muted); line-height: 1.3;
+  }
+  .step-arrow { color: var(--text-dim); }
+  .step-arrow svg { width: 14px; height: 14px; display: block; }
+
+  /* FOOTER */
+  .footer {
+    margin-top: 32px; padding: 18px 0;
+    border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 11.5px; color: var(--text-subtle);
+    flex-wrap: wrap; gap: 12px;
+  }
+  .footer .meta-group { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .footer .sep { color: var(--text-dim); }
+  .disclaimer { color: var(--text-dim); font-size: 11px; }
+  .disclaimer .star { color: var(--amber); }
+
+  /* RESPONSIVE */
+  @media (max-width: 1280px) {
+    .top-grid { grid-template-columns: 1fr; }
+    .mid-grid { grid-template-columns: 1fr 1fr; }
+    .mid-grid > :nth-child(3) { grid-column: 1 / -1; }
+    .commentary-grid { grid-template-columns: 1fr 1fr; }
+    .bottom-grid { grid-template-columns: 1fr; }
+    .metrics-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    .container { padding: 18px 16px 28px; }
+    .header { flex-direction: column; gap: 16px; }
+    .header-right { align-items: flex-start; width: 100%; }
+    .title { font-size: 26px; }
+    .mid-grid { grid-template-columns: 1fr; }
+    .commentary-grid { grid-template-columns: 1fr; }
+    .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+    .deploy-steps { grid-template-columns: 1fr; gap: 8px; }
+    .step-arrow { transform: rotate(90deg); justify-self: center; }
+    .url-pill { max-width: 100%; }
+    .action-buttons { flex-wrap: wrap; }
+  }
+
+  @media (max-width: 420px) {
+    .title { font-size: 22px; }
+    .metric-value { font-size: 18px; }
+    .summary, .snapshot, .chart-card, .comment-card, .news-card, .takeaway-card, .deploy-card { padding: 16px 18px; }
+    .btn { padding: 9px 14px; font-size: 12px; }
+  }
+
+  /* ── MACRO BRIEF ────────────────────────────────── */
+  .macro-brief-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 16px; margin-bottom: 16px;
+  }
+  .macro-signal-grid {
+    display: grid; grid-template-columns: 1fr 1.6fr;
+    gap: 16px; margin-bottom: 16px;
+  }
+  .macro-brief-card { padding: 22px 24px; }
+  .macro-brief-header {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 14px;
+  }
+  .macro-region-badge {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 3px 9px; border-radius: 5px;
+  }
+  .badge-domestic {
+    background: rgba(59,130,246,0.15); color: #93C5FD;
+    border: 1px solid rgba(59,130,246,0.3);
+  }
+  .badge-global {
+    background: rgba(167,139,250,0.15); color: #C4B5FD;
+    border: 1px solid rgba(167,139,250,0.3);
+  }
+  .macro-brief-list { list-style: none; }
+  .macro-brief-list li {
+    position: relative; padding: 8px 0 8px 16px;
+    font-size: 13px; line-height: 1.6; color: var(--text);
+    border-bottom: 1px solid var(--border);
+  }
+  .macro-brief-list li:last-child { border-bottom: none; padding-bottom: 0; }
+  .macro-brief-list li:first-child { padding-top: 0; }
+  .macro-brief-list li::before {
+    content: ''; position: absolute;
+    left: 0; top: 16px; width: 4px; height: 4px;
+    border-radius: 50%;
+  }
+  .macro-brief-card.domestic .macro-brief-list li::before { background: #60A5FA; }
+  .macro-brief-card.global_ .macro-brief-list li::before  { background: #C4B5FD; }
+  .macro-brief-list li:first-child::before { top: 8px; }
+
+  /* common signals */
+  .signal-list { list-style: none; }
+  .signal-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 0; border-bottom: 1px solid var(--border);
+    font-size: 13px; color: var(--text); line-height: 1.5;
+  }
+  .signal-item:last-child { border-bottom: none; }
+  .signal-dot {
+    flex-shrink: 0; width: 8px; height: 8px; border-radius: 50%;
+    background: linear-gradient(135deg, #22D3EE, #A78BFA);
+  }
+
+  /* Market Moving Issues */
+  .mmi-table { display: flex; flex-direction: column; gap: 0; }
+  .mmi-row {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 10px 0; border-bottom: 1px solid var(--border);
+  }
+  .mmi-row:last-child { border-bottom: none; }
+  .mmi-rank {
+    flex-shrink: 0; width: 22px; height: 22px;
+    background: var(--bg-1); border: 1px solid var(--border-strong);
+    border-radius: 5px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; font-weight: 700; color: var(--text-muted);
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 1px;
+  }
+  .mmi-dir-badge {
+    flex-shrink: 0;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 10px; font-weight: 700;
+    padding: 2px 7px; border-radius: 4px; white-space: nowrap; margin-top: 2px;
+  }
+  .dir-positive { background: rgba(16,185,129,0.14); color: #10B981; border: 1px solid rgba(16,185,129,0.3); }
+  .dir-negative { background: rgba(248,113,113,0.14); color: #F87171; border: 1px solid rgba(248,113,113,0.3); }
+  .dir-neutral  { background: rgba(148,163,184,0.12); color: #94A3B8; border: 1px solid rgba(148,163,184,0.2); }
+  .dir-mixed    { background: rgba(245,158,11,0.12);  color: #F59E0B; border: 1px solid rgba(245,158,11,0.3); }
+  .mmi-content { flex: 1; min-width: 0; }
+  .mmi-issue  { font-size: 13px; font-weight: 600; color: var(--text); line-height: 1.4; margin-bottom: 2px; }
+  .mmi-reason { font-size: 11.5px; color: var(--text-muted); line-height: 1.4; }
+
+  /* Source Articles */
+  .source-articles-section { margin-bottom: 16px; }
+  .source-articles-details { width: 100%; }
+  .source-articles-summary {
+    display: flex; align-items: center; gap: 12px;
+    padding: 16px 24px; cursor: pointer;
+    list-style: none; outline: none;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 15px; font-weight: 600; color: var(--text);
+  }
+  .source-articles-summary::-webkit-details-marker { display: none; }
+  .source-articles-summary::after {
+    content: '▾'; margin-left: auto;
+    font-size: 14px; color: var(--text-muted);
+    transition: transform 0.2s;
+  }
+  details[open] .source-articles-summary::after { transform: rotate(180deg); }
+  .source-count-badge {
+    font-size: 11px; color: var(--text-subtle);
+    background: var(--bg-1); border: 1px solid var(--border);
+    padding: 2px 8px; border-radius: 10px;
+  }
+  .source-articles-body { padding: 0 24px 20px; }
+  .source-article-item {
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    gap: 10px; align-items: start;
+    padding: 10px 0; border-bottom: 1px solid var(--border);
+  }
+  .source-article-item:last-child { border-bottom: none; }
+  .sa-meta { display: flex; flex-direction: column; gap: 4px; }
+  .sa-region {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 9.5px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 2px 6px; border-radius: 4px; width: fit-content;
+  }
+  .sa-source { font-size: 10.5px; color: var(--text-subtle); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .sa-date   { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--text-dim); }
+  .sa-body   { min-width: 0; }
+  .sa-title  { font-size: 13px; color: var(--text); line-height: 1.45; margin-bottom: 4px; }
+  .sa-topics { display: flex; flex-wrap: wrap; gap: 4px; }
+  .sa-topic  {
+    font-size: 9.5px; padding: 1px 6px; border-radius: 3px;
+    background: rgba(255,255,255,0.05); color: var(--text-subtle);
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+  .sa-score  { flex-shrink: 0; text-align: right; }
+  .sa-rel-score {
+    font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+    color: var(--text-subtle); white-space: nowrap;
+  }
+  .sa-rel-score.high  { color: var(--green); }
+  .sa-rel-score.med   { color: var(--amber); }
+  .sa-rel-score.low   { color: var(--text-dim); }
+  .low-relevance-details {
+    margin-top: 10px; border-top: 1px solid var(--border); padding-top: 8px;
+  }
+  .low-relevance-summary {
+    font-size: 11px; color: var(--text-dim); cursor: pointer;
+    list-style: none; padding: 4px 0;
+  }
+  .low-relevance-summary::-webkit-details-marker { display: none; }
+
+  @media (max-width: 1280px) {
+    .macro-brief-grid  { grid-template-columns: 1fr; }
+    .macro-signal-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 768px) {
+    .source-article-item { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <header class="header">
+    <div class="header-left">
+      <div class="brand-row">
+        <div class="logo">SV</div>
+        <span class="brand-text">Standard View</span>
+      </div>
+      <h1 class="title">Standard View — Daily Macro Brief</h1>
+      <div class="title-meta">
+        <span class="date-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+          2026년 8월 15일 (토)
+        </span>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <div class="action-buttons">
+        <a class="btn"
+href="https://stanlee5767.github.io/standardview" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+          GitHub Report Link
+        </a>
+        <a class="btn primary"
+aria-disabled="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 4.34c-.18-.74-.93-1.18-1.67-.99L2.51 10.6c-.69.24-.74 1.2-.07 1.51l4.7 2.18 1.85 5.92c.16.5.79.66 1.17.29l2.66-2.55 4.84 3.57c.55.4 1.32.1 1.46-.57l3.04-15.55c.05-.27.04-.55-.03-.81zM10.04 14.55l-.46 4.07-.97-3.11 8.83-7.91-7.4 6.95z"/></svg>
+          Send to Telegram
+        </a>
+      </div>
+      <div class="url-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+        </svg>
+        <span class="path">https://stanlee5767.github.io/standardview/reports/daily/2026-08-15.html</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="top-grid">
+    <section class="card summary">
+      <div class="summary-header">
+        <div class="summary-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+          </svg>
+        </div>
+        <h2 class="summary-title">2026-08-15 핵심 요약</h2>
+      </div>
+      <ul>
+        <li>한국 기준금리 2.5% — 동결 기조</li>
+        <li>미국 기준금리 4.375% / 미국 10Y 4.35% — 고금리 장기화 국면</li>
+        <li>원/달러 1,481원 — 달러 강세 지속</li>
+        <li>WTI 유가 $70.2 / 금 $3300 — 원자재 ↓ 흐름</li>
+        <li>VIX 22.5 — 보통 수준</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h3 class="panel-title">Data Source Status</h3>
+      <div class="status-grid">
+        <span class="status-chip s-ok">Naver: OK</span>
+        <span class="status-chip s-ok">NewsAPI: OK</span>
+        <span class="status-chip s-ok">GDELT: OK</span>
+        <span class="status-chip s-ok">ECOS: OK</span>
+        <span class="status-chip s-ok">FRED: OK</span>
+      </div>
+      <p class="status-quality">국내 15건 · 글로벌 0건 · 품질: live · 분석: 규칙기반</p>
+    </section>
+
+    <section class="card snapshot">
+      <div class="snapshot-header">
+        <h2 class="snapshot-title">Macro Snapshot</h2>
+        <span class="snapshot-meta">기준: 전일 대비</span>
+      </div>
+      <div class="metrics-grid">
+        <div class="metrics-group-header">국내 지표</div>
+        <div class="metric">
+          <div class="metric-label">
+            한국 기준금리          </div>
+          <div class="metric-row">
+            <span class="metric-value">2.5%</span>
+            <span class="metric-change flat">
+—              동결
+            </span>
+          </div>
+          <canvas class="spark" id="spark-1" style="height:36px;max-height:36px"></canvas>
+        </div>
+        <div class="metric">
+          <div class="metric-label">
+            국고채 3년          </div>
+          <div class="metric-row">
+            <span class="metric-value">2.85%</span>
+            <span class="metric-change down">
+▼              -0.05
+            </span>
+          </div>
+          <canvas class="spark" id="spark-2" style="height:36px;max-height:36px"></canvas>
+        </div>
+        <div class="metric">
+          <div class="metric-label">
+            국고채 10년          </div>
+          <div class="metric-row">
+            <span class="metric-value">3.05%</span>
+            <span class="metric-change down">
+▼              -0.03
+            </span>
+          </div>
+          <canvas class="spark" id="spark-3" style="height:36px;max-height:36px"></canvas>
+        </div>
+        <div class="metric">
+          <div class="metric-label">
+            USD/KRW          </div>
+          <div class="metric-row">
+            <span class="metric-value">1,480.9</span>
+            <span class="metric-change up">
+▲              +5.30
+            </span>
+          </div>
+          <canvas class="spark" id="spark-4" style="height:36px;max-height:36px"></canvas>
+        </div>
+        <div class="metric">
+          <div class="metric-label">
+            한국 CPI          </div>
+          <div class="metric-row">
+            <span class="metric-value">117.57</span>
+            <span class="metric-change up">
+▲              +0.37
+            </span>
+          </div>
+          <canvas class="spark" id="spark-5" style="height:36px;max-height:36px"></canvas>
+        </div>
+        <div class="metric">
+          <div class="metric-label">
+            한국 GDP 성장률<span class="metric-badge">참고값</span>          </div>
+          <div class="metric-row">
+            <span class="metric-value">1.5%</span>
+            <span class="metric-change down">
+▼              ↓
+            </span>
+          </div>
+          <canvas class="spark" id="spark-6" style="height:36px;max-height:36px"></canvas>
+        </div>
+        <div class="metric">
+          <div class="metric-label">
+            경상수지<span class="metric-badge">참고값</span>          </div>
+          <div class="metric-row">
+            <span class="metric-value">38</span>
+            <span class="metric-change up">
+▲              +5.00
+            </span>
+          </div>
+          <canvas class="spark" id="spark-7" style="height:36px;max-height:36px"></canvas>
+        </div>
+        <div class="metrics-group-header">글로벌 지표</div>
+        <div class="metric">
+          <div class="metric-label">
+            미국 FFR          </div>
+          <div class="metric-row">
+            <span class="metric-value">4.375%</span>
+            <span class="metric-change flat">
+—              동결
+            </span>
+          </div>
+          <canvas class="spark" id="spark-9" style="height:36px;max-height:36px"></canvas>
+        </div>
+        <div class="metric">
+          <div class="metric-label">
+            미국 10Y          </div>
+          <div class="metric-row">
+            <span class="metric-value">4.35%</span>
+            <span class="metric-change down">
+▼              -0.10
+            </span>
+          </div>
+          <canvas class="spark" id="spark-10" style="height:36px;max-height:36px"></canvas>
+        </div>
+        <div class="metric">
+          <div class="metric-label">
+            미국 CPI          </div>
+          <div class="metric-row">
+            <span class="metric-value">2.4</span>
+            <span class="metric-change down">
+▼              -0.10
+            </span>
+          </div>
+          <canvas class="spark" id="spark-11" style="height:36px;max-height:36px"></canvas>
+        </div>
+        <div class="metric">
+          <div class="metric-label">
+            미국 실업률          </div>
+          <div class="metric-row">
+            <span class="metric-value">4.2%</span>
+            <span class="metric-change up">
+▲              +0.10
+            </span>
+          </div>
+          <canvas class="spark" id="spark-12" style="height:36px;max-height:36px"></canvas>
+        </div>
+        <div class="metric">
+          <div class="metric-label">
+            미국 GDP<span class="metric-badge">참고값</span>          </div>
+          <div class="metric-row">
+            <span class="metric-value">2.7%</span>
+            <span class="metric-change flat">
+—              동결
+            </span>
+          </div>
+          <canvas class="spark" id="spark-13" style="height:36px;max-height:36px"></canvas>
+        </div>
+        <div class="metric">
+          <div class="metric-label">
+            달러인덱스          </div>
+          <div class="metric-row">
+            <span class="metric-value">100.50</span>
+            <span class="metric-change down">
+▼              -1.50
+            </span>
+          </div>
+          <canvas class="spark" id="spark-14" style="height:36px;max-height:36px"></canvas>
+        </div>
+        <div class="metric">
+          <div class="metric-label">
+            S&amp;P 500          </div>
+          <div class="metric-row">
+            <span class="metric-value">7,798.99</span>
+            <span class="metric-change up">
+▲              +50.49
+            </span>
+          </div>
+          <canvas class="spark" id="spark-15" style="height:36px;max-height:36px"></canvas>
+        </div>
+        <div class="metric">
+          <div class="metric-label">
+            NASDAQ          </div>
+          <div class="metric-row">
+            <span class="metric-value">18,350.00</span>
+            <span class="metric-change up">
+▲              +380.00
+            </span>
+          </div>
+          <canvas class="spark" id="spark-16" style="height:36px;max-height:36px"></canvas>
+        </div>
+        <div class="metric">
+          <div class="metric-label">
+            VIX          </div>
+          <div class="metric-row">
+            <span class="metric-value">22.5</span>
+            <span class="metric-change up">
+▲              +3.20
+            </span>
+          </div>
+          <canvas class="spark" id="spark-17" style="height:36px;max-height:36px"></canvas>
+        </div>
+        <div class="metric">
+          <div class="metric-label">
+            WTI          </div>
+          <div class="metric-row">
+            <span class="metric-value">$70.2</span>
+            <span class="metric-change down">
+▼              -3.10
+            </span>
+          </div>
+          <canvas class="spark" id="spark-18" style="height:36px;max-height:36px"></canvas>
+        </div>
+        <div class="metric">
+          <div class="metric-label">
+            브렌트유          </div>
+          <div class="metric-row">
+            <span class="metric-value">$73.8</span>
+            <span class="metric-change down">
+▼              -3.00
+            </span>
+          </div>
+          <canvas class="spark" id="spark-19" style="height:36px;max-height:36px"></canvas>
+        </div>
+        <div class="metric">
+          <div class="metric-label">
+            구리          </div>
+          <div class="metric-row">
+            <span class="metric-value">$9950.00</span>
+            <span class="metric-change up">
+▲              +150.00
+            </span>
+          </div>
+          <canvas class="spark" id="spark-20" style="height:36px;max-height:36px"></canvas>
+        </div>
+        <div class="metric">
+          <div class="metric-label">
+            금          </div>
+          <div class="metric-row">
+            <span class="metric-value">$3,300</span>
+            <span class="metric-change up">
+▲              +150.00
+            </span>
+          </div>
+          <canvas class="spark" id="spark-21" style="height:36px;max-height:36px"></canvas>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="mid-grid">
+
+    <section class="card chart-card">
+      <div class="chart-head">
+        <h3 class="chart-title">금리·환율 추이</h3>
+      </div>
+      <div class="chart-legend">
+        <span class="legend-item"><span class="legend-dot" style="background:#3B82F6"></span>미국 10Y (좌)</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#22D3EE"></span>한국 기준금리 (좌)</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#A78BFA"></span>원/달러 (우)</span>
+      </div>
+      <div class="chart-body"><canvas id="chart-rates"></canvas></div>
+      <div class="chart-footer">출처: Bloomberg, 한국은행, FRED</div>
+    </section>
+
+    <section class="card chart-card">
+      <div class="chart-head">
+        <h3 class="chart-title">물가와 경기 모멘텀</h3>
+      </div>
+      <div class="chart-legend">
+        <span class="legend-item"><span class="legend-dot" style="background:#F59E0B"></span>미국 CPI (지수)</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#10B981"></span>한국 CPI (지수)</span>
+      </div>
+      <div class="chart-body"><canvas id="chart-inflation"></canvas></div>
+      <div class="chart-footer">출처: 통계청, BLS, S&amp;P Global</div>
+    </section>
+
+    <section class="card gauge-card">
+      <div class="chart-head">
+        <h3 class="chart-title">시장 센티먼트</h3>
+      </div>
+      <div class="gauge-wrap">
+        <div class="gauge-svg-wrap">
+          <svg viewBox="0 0 240 150" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="gaugeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#EF4444"/>
+                <stop offset="33%" stop-color="#F59E0B"/>
+                <stop offset="66%" stop-color="#FCD34D"/>
+                <stop offset="100%" stop-color="#10B981"/>
+              </linearGradient>
+            </defs>
+            <path d="M 20 130 A 100 100 0 0 1 220 130"
+                  stroke="url(#gaugeGrad)" stroke-width="18" fill="none" stroke-linecap="round"/>
+            <text x="32"  y="58" font-family="Noto Sans KR" font-size="11" fill="#94A3B8">공포</text>
+            <text x="120" y="34" font-family="Noto Sans KR" font-size="11" fill="#94A3B8" text-anchor="middle">중립</text>
+            <text x="208" y="58" font-family="Noto Sans KR" font-size="11" fill="#94A3B8" text-anchor="end">탐욕</text>
+            <g transform="translate(120, 130) rotate(-102.60)">
+              <line x1="0" y1="0" x2="0" y2="-86" stroke="#E8ECF4" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="0" cy="0" r="6" fill="#E8ECF4"/>
+              <circle cx="0" cy="0" r="3" fill="#0B1220"/>
+            </g>
+          </svg>
+          <div class="gauge-value-overlay">
+            <div class="gauge-value neutral">43</div>
+            <div class="gauge-caption">Fear</div>
+          </div>
+        </div>
+      </div>
+      <div class="gauge-scale"><span>0</span><span>100</span></div>
+      <div class="chart-footer">출처: VIX 역산 추정</div>
+    </section>
+  </div>
+
+
+  <div class="macro-brief-grid">
+
+    <section class="card macro-brief-card domestic">
+      <div class="macro-brief-header">
+        <span class="macro-region-badge badge-domestic">국내 Domestic</span>
+        <h3 class="panel-title" style="margin-bottom:0">국내 매크로 브리프</h3>
+      </div>
+      <ul class="macro-brief-list">
+        <li>한국 기준금리 2.5% — 동결 지속, 실물경기 회복 속도와 연동하여 추후 방향성 주시 필요</li>
+        <li>원/달러 환율 1,481원 — 달러 강세·원화 약세 국면, 수입물가·외화부채 기업 영향 주시</li>
+        <li>한국 CPI 117.57 — 물가 압력 동향 모니터링, 한국은행 통화정책 기조에 영향</li>
+        <li>국고채 10년물 3.05% — 장기금리 레벨, PF·회사채 조달 비용과 직결</li>
+      </ul>
+    </section>
+
+    <section class="card macro-brief-card global_">
+      <div class="macro-brief-header">
+        <span class="macro-region-badge badge-global">글로벌 Global</span>
+        <h3 class="panel-title" style="margin-bottom:0">글로벌 매크로 브리프</h3>
+      </div>
+      <ul class="macro-brief-list">
+        <li>미국 기준금리(FFR) 4.375% — 고금리 장기화 국면, FOMC 점도표 및 인플레 데이터 주시</li>
+        <li>미국 10년물 국채금리 4.35% — 글로벌 벤치마크 금리, 위험자산 밸류에이션에 직접 영향</li>
+        <li>미국 CPI 2.4 — 인플레이션 재점화 여부에 따라 Fed 피벗 시점 재조정 가능성</li>
+        <li>WTI 유가 $70.2</li>
+      </ul>
+    </section>
+
+  </div>
+
+  <div class="macro-signal-grid">
+
+    <section class="card" style="padding:22px 24px">
+      <h3 class="panel-title">국내외 공통 시그널</h3>
+      <ul class="signal-list">
+        <li class="signal-item">
+          <span class="signal-dot"></span>
+          <span>매크로 환경 모니터링 중</span>
+        </li>
+        <li class="signal-item">
+          <span class="signal-dot"></span>
+          <span>매크로 환경 모니터링 중</span>
+        </li>
+        <li class="signal-item">
+          <span class="signal-dot"></span>
+          <span>매크로 환경 모니터링 중</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="card" style="padding:22px 24px">
+      <h3 class="panel-title">Market Moving Issues</h3>
+      <p style="color:var(--text-muted);font-size:13px">분석 생성 중입니다.</p>
+    </section>
+
+  </div>
+
+
+  <div class="commentary-grid">
+    <section class="card comment-card">
+      <div class="comment-head">
+        <div class="comment-icon blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+        </div>
+        <h3 class="comment-title">대규모 공급계약</h3>
+      </div>
+      <p class="comment-body">獨 TKMS, 라인메탈에 F128 호위함 참여 제안…방산 생태계 재편</p>
+    </section>
+  </div>
+
+  <div class="bottom-grid">
+
+    <section class="card news-card">
+      <h3 class="panel-title">Macro News</h3>
+      <div class="news-section-header">국내</div>
+      <div class="news-item">
+        <span class="news-tag tag-blue">국내</span>
+        <a class="news-headline news-link" href="https://www.newscj.com/news/articleView.html?idxno=3425332" target="_blank" rel="noopener">트럼프 &#34;중국산 드론, 국가안보 훼손 우려&#34;… 최대 100% 관세</a>
+        <span class="news-time">15 Au</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag tag-blue">국내</span>
+        <a class="news-headline news-link" href="https://www.goodkyung.com/news/articleView.html?idxno=290286" target="_blank" rel="noopener">[위클리 에너지 리포트] 대한전선 &#39;스칸디 커넥터&#39;호, 8월 영광낙월 해...</a>
+        <span class="news-time">15 Au</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag tag-blue">국내</span>
+        <a class="news-headline news-link" href="https://www.cbci.co.kr/news/articleView.html?idxno=598469" target="_blank" rel="noopener">[속보]뉴욕증시, 사상 최고치 뒤 숨고르기…소비 둔화·유가 부담에 3대...</a>
+        <span class="news-time">15 Au</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag tag-cyan">반도체</span>
+        <a class="news-headline news-link" href="https://www.g-enews.com/view.php?ud=20260815065030954fbbec65dfb_1" target="_blank" rel="noopener">SK하이닉스, 美 전공정 메모리 팹 부지 검토…공급망 현지화 대응</a>
+        <span class="news-time">15 Au</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag tag-blue">국내</span>
+        <a class="news-headline news-link" href="https://www.dt.co.kr/article/12078367?ref=naver" target="_blank" rel="noopener">뉴욕증시, 기술주 약세·드론주 강세… 삼전닉스 다음주 ‘시험대’</a>
+        <span class="news-time">15 Au</span>
+      </div>
+      <div class="news-section-header" style="margin-top:10px">글로벌</div>
+      <div class="news-item">
+        <span class="news-tag tag-purple">글로벌</span>
+        <span class="news-headline">글로벌 뉴스 수집 결과가 부족합니다. NewsAPI/GDELT 설정을 확인하세요.</span>
+        <span class="news-time"></span>
+      </div>
+    </section>
+
+    <section class="card takeaway-card">
+      <h3 class="panel-title">투자 및 딜 관점 시사점</h3>
+      <svg class="takeaway-bg" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 8c-5 0-9 4-9 9 0 3 2 6 4 8h-3v6h3l-2 8h-7v6h22v-6h-7l-2-8h3v-6h-3c2-2 4-5 4-8 0-5-4-9-9-9zm-15 50h30v6h-30zm-3 10h36v8h-36z"/>
+      </svg>
+      <ul class="takeaway-list">
+        <li class="takeaway-item">
+          <span class="takeaway-check">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          <span class="takeaway-text">금리 동결 기조 → LBO 레버리지 보수적 유지 권고</span>
+        </li>
+        <li class="takeaway-item">
+          <span class="takeaway-check">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          <span class="takeaway-text">AI·반도체 글로벌 자금 집중 — 국내 스타트업 후속 라운드 모멘텀 주목</span>
+        </li>
+        <li class="takeaway-item">
+          <span class="takeaway-check">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          <span class="takeaway-text">원자재 가격 변동성 확대 — 에너지 비용 민감 포트폴리오 헤지 검토</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="card deploy-card">
+      <h3 class="panel-title">Standard View 자동화</h3>
+      <p class="deploy-desc">매일 HTML로 생성되어 GitHub Pages에 배포, Telegram으로 링크 공유.</p>
+      <div class="deploy-steps">
+        <div class="step done">
+          <span class="step-num">1</span>
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <div class="step-label">Generate HTML</div>
+        </div>
+        <div class="step-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+        <div class="step done">
+          <span class="step-num">2</span>
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+          </div>
+          <div class="step-label">Publish to GitHub</div>
+        </div>
+        <div class="step-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+        <div class="step done">
+          <span class="step-num">3</span>
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 4.34c-.18-.74-.93-1.18-1.67-.99L2.51 10.6c-.69.24-.74 1.2-.07 1.51l4.7 2.18 1.85 5.92c.16.5.79.66 1.17.29l2.66-2.55 4.84 3.57c.55.4 1.32.1 1.46-.57l3.04-15.55c.05-.27.04-.55-.03-.81z"/></svg>
+          </div>
+          <div class="step-label">Send Link to Telegram</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="source-articles-section">
+    <section class="card source-articles-details-wrapper" style="overflow:hidden">
+      <details class="source-articles-details" open>
+        <summary class="source-articles-summary">
+          Source Articles
+          <span class="source-count-badge">
+            국내 12 · 글로벌 0건
+          </span>
+        </summary>
+        <div class="source-articles-body">
+
+
+          <div class="news-section-header" style="margin-bottom:8px">국내 뉴스 (Domestic) — 12건</div>
+                      <div class="source-article-item">
+            <div class="sa-meta">
+              <span class="sa-region badge-domestic">국내</span>
+              <span class="sa-source">goodkyung</span>
+              <span class="sa-date">Sat, 15 Au</span>
+            </div>
+            <div class="sa-body">
+              <a class="sa-title news-link" href="https://www.goodkyung.com/news/articleView.html?idxno=290286" target="_blank" rel="noopener">[위클리 에너지 리포트] 대한전선 &#39;스칸디 커넥터&#39;호, 8월 영광낙월 해...</a>
+              <div class="sa-topics">
+                <span class="sa-topic">geopolitics</span>
+                <span class="sa-topic">policy</span>
+              </div>
+            </div>
+            <div class="sa-score">
+              <span class="sa-rel-score med">
+                관련성 3/5
+              </span>
+            </div>
+          </div>
+
+                      <div class="source-article-item">
+            <div class="sa-meta">
+              <span class="sa-region badge-domestic">국내</span>
+              <span class="sa-source">cbci</span>
+              <span class="sa-date">Sat, 15 Au</span>
+            </div>
+            <div class="sa-body">
+              <a class="sa-title news-link" href="https://www.cbci.co.kr/news/articleView.html?idxno=598469" target="_blank" rel="noopener">[속보]뉴욕증시, 사상 최고치 뒤 숨고르기…소비 둔화·유가 부담에 3대...</a>
+              <div class="sa-topics">
+                <span class="sa-topic">interest_rate</span>
+                <span class="sa-topic">inflation</span>
+                <span class="sa-topic">growth</span>
+                <span class="sa-topic">equity_market</span>
+              </div>
+            </div>
+            <div class="sa-score">
+              <span class="sa-rel-score high">
+                관련성 4/5
+              </span>
+            </div>
+          </div>
+
+                      <div class="source-article-item">
+            <div class="sa-meta">
+              <span class="sa-region badge-domestic">국내</span>
+              <span class="sa-source">dt</span>
+              <span class="sa-date">Sat, 15 Au</span>
+            </div>
+            <div class="sa-body">
+              <a class="sa-title news-link" href="https://www.dt.co.kr/article/12078367?ref=naver" target="_blank" rel="noopener">뉴욕증시, 기술주 약세·드론주 강세… 삼전닉스 다음주 ‘시험대’</a>
+              <div class="sa-topics">
+                <span class="sa-topic">growth</span>
+                <span class="sa-topic">equity_market</span>
+              </div>
+            </div>
+            <div class="sa-score">
+              <span class="sa-rel-score med">
+                관련성 3/5
+              </span>
+            </div>
+          </div>
+
+                      <div class="source-article-item">
+            <div class="sa-meta">
+              <span class="sa-region badge-domestic">국내</span>
+              <span class="sa-source">newsian</span>
+              <span class="sa-date">Sat, 15 Au</span>
+            </div>
+            <div class="sa-body">
+              <a class="sa-title news-link" href="http://www.newsian.co.kr/news/articleView.html?idxno=93777" target="_blank" rel="noopener">[초점] &#39;빌 게이츠 원전&#39; 테라파워에 K기업 총출동…SMR 공급망 선점전</a>
+              <div class="sa-topics">
+                <span class="sa-topic">growth</span>
+                <span class="sa-topic">geopolitics</span>
+              </div>
+            </div>
+            <div class="sa-score">
+              <span class="sa-rel-score med">
+                관련성 3/5
+              </span>
+            </div>
+          </div>
+
+          <details class="low-relevance-details">
+            <summary class="low-relevance-summary">낮은 관련성 8건 더 보기 ▾</summary>
+                        <div class="source-article-item">
+            <div class="sa-meta">
+              <span class="sa-region badge-domestic">국내</span>
+              <span class="sa-source">newscj</span>
+              <span class="sa-date">Sat, 15 Au</span>
+            </div>
+            <div class="sa-body">
+              <a class="sa-title news-link" href="https://www.newscj.com/news/articleView.html?idxno=3425332" target="_blank" rel="noopener">트럼프 &#34;중국산 드론, 국가안보 훼손 우려&#34;… 최대 100% 관세</a>
+              <div class="sa-topics">
+                <span class="sa-topic">other</span>
+              </div>
+            </div>
+            <div class="sa-score">
+              <span class="sa-rel-score low">
+                관련성 1/5
+              </span>
+            </div>
+          </div>
+
+                        <div class="source-article-item">
+            <div class="sa-meta">
+              <span class="sa-region badge-domestic">국내</span>
+              <span class="sa-source">weekly</span>
+              <span class="sa-date">Sat, 15 Au</span>
+            </div>
+            <div class="sa-body">
+              <a class="sa-title news-link" href="http://weekly.chosun.com/news/articleView.html?idxno=54312" target="_blank" rel="noopener">與 뒤흔든 &#39;신천지 연루설&#39;…전당대회 끝나면 없던 일 되나</a>
+              <div class="sa-topics">
+                <span class="sa-topic">policy</span>
+              </div>
+            </div>
+            <div class="sa-score">
+              <span class="sa-rel-score low">
+                관련성 2/5
+              </span>
+            </div>
+          </div>
+
+                        <div class="source-article-item">
+            <div class="sa-meta">
+              <span class="sa-region badge-domestic">국내</span>
+              <span class="sa-source">news1</span>
+              <span class="sa-date">Sat, 15 Au</span>
+            </div>
+            <div class="sa-body">
+              <a class="sa-title news-link" href="https://www.news1.kr/world/asia-australia/6259289" target="_blank" rel="noopener">26억으로 4000억 번 中영화, 동남아 화인사회 흔들다[동남아시아 TODAY]</a>
+              <div class="sa-topics">
+                <span class="sa-topic">growth</span>
+              </div>
+            </div>
+            <div class="sa-score">
+              <span class="sa-rel-score low">
+                관련성 2/5
+              </span>
+            </div>
+          </div>
+
+                        <div class="source-article-item">
+            <div class="sa-meta">
+              <span class="sa-region badge-domestic">국내</span>
+              <span class="sa-source">goodkyung</span>
+              <span class="sa-date">Sat, 15 Au</span>
+            </div>
+            <div class="sa-body">
+              <a class="sa-title news-link" href="https://www.goodkyung.com/news/articleView.html?idxno=290326" target="_blank" rel="noopener">[굿모닝! 이 법안] 미래자동차산업 경쟁력 강화·지원 특별법 대기 중</a>
+              <div class="sa-topics">
+                <span class="sa-topic">policy</span>
+              </div>
+            </div>
+            <div class="sa-score">
+              <span class="sa-rel-score low">
+                관련성 2/5
+              </span>
+            </div>
+          </div>
+
+                        <div class="source-article-item">
+            <div class="sa-meta">
+              <span class="sa-region badge-domestic">국내</span>
+              <span class="sa-source">the-biz</span>
+              <span class="sa-date">Sat, 15 Au</span>
+            </div>
+            <div class="sa-body">
+              <a class="sa-title news-link" href="http://www.the-biz.co.kr/news/articleView.html?idxno=726077" target="_blank" rel="noopener">[가전 대전환①] 생각하는 냉장고, 판단하는 세탁기</a>
+              <div class="sa-topics">
+                <span class="sa-topic">other</span>
+              </div>
+            </div>
+            <div class="sa-score">
+              <span class="sa-rel-score low">
+                관련성 1/5
+              </span>
+            </div>
+          </div>
+
+                        <div class="source-article-item">
+            <div class="sa-meta">
+              <span class="sa-region badge-domestic">국내</span>
+              <span class="sa-source">g-enews</span>
+              <span class="sa-date">Sat, 15 Au</span>
+            </div>
+            <div class="sa-body">
+              <a class="sa-title news-link" href="https://www.g-enews.com/view.php?ud=20260815065030954fbbec65dfb_1" target="_blank" rel="noopener">SK하이닉스, 美 전공정 메모리 팹 부지 검토…공급망 현지화 대응</a>
+              <div class="sa-topics">
+                <span class="sa-topic">geopolitics</span>
+              </div>
+            </div>
+            <div class="sa-score">
+              <span class="sa-rel-score low">
+                관련성 2/5
+              </span>
+            </div>
+          </div>
+
+                        <div class="source-article-item">
+            <div class="sa-meta">
+              <span class="sa-region badge-domestic">국내</span>
+              <span class="sa-source">g-enews</span>
+              <span class="sa-date">Sat, 15 Au</span>
+            </div>
+            <div class="sa-body">
+              <a class="sa-title news-link" href="https://www.g-enews.com/view.php?ud=202608150648032180e8b8a793f7_1" target="_blank" rel="noopener">獨 TKMS, 라인메탈에 F128 호위함 참여 제안…방산 생태계 재편</a>
+              <div class="sa-topics">
+                <span class="sa-topic">other</span>
+              </div>
+            </div>
+            <div class="sa-score">
+              <span class="sa-rel-score low">
+                관련성 1/5
+              </span>
+            </div>
+          </div>
+
+                        <div class="source-article-item">
+            <div class="sa-meta">
+              <span class="sa-region badge-domestic">국내</span>
+              <span class="sa-source">mk</span>
+              <span class="sa-date">Sat, 15 Au</span>
+            </div>
+            <div class="sa-body">
+              <a class="sa-title news-link" href="https://www.mk.co.kr/article/12128645" target="_blank" rel="noopener">중국, 메모리 이어 파운드리 진격…역대급 분기실적 “하반기 더 간다”</a>
+              <div class="sa-topics">
+                <span class="sa-topic">growth</span>
+              </div>
+            </div>
+            <div class="sa-score">
+              <span class="sa-rel-score low">
+                관련성 2/5
+              </span>
+            </div>
+          </div>
+
+          </details>
+
+
+        </div>
+      </details>
+    </section>
+  </div>
+
+  <footer class="footer">
+    <div class="meta-group">
+      <span>© 2026 Standard View.</span>
+      <span class="sep">·</span>
+      <span>All rights reserved.</span>
+    </div>
+    <div class="meta-group">
+      <span>Data as of 2026-08-15</span>
+      <span class="sep">·</span>
+      <span class="disclaimer"><span class="star">★</span> 본 보고서는 투자 조언이 아니며 정보 제공을 목적으로 합니다.</span>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+(function() {
+  Chart.defaults.color = '#94A3B8';
+  Chart.defaults.font.family = "'IBM Plex Sans', 'Noto Sans KR', sans-serif";
+  Chart.defaults.font.size = 11;
+  Chart.defaults.borderColor = 'rgba(255, 255, 255, 0.06)';
+
+  const gridColor = 'rgba(255, 255, 255, 0.05)';
+  const axisColor = '#64748B';
+
+  // ---- Sparklines ----
+  const sparkData = [null, [2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5], [3.4, 3.35, 3.3, 3.25, 3.2, 3.15, 3.1, 3.05, 3.0, 2.95, 2.9, 2.85], [3.38, 3.35, 3.32, 3.29, 3.26, 3.23, 3.2, 3.17, 3.14, 3.11, 3.08, 3.05], [1422.6, 1427.9, 1433.2, 1438.5, 1443.8, 1449.1, 1454.4, 1459.7, 1465.0, 1470.3, 1475.6, 1480.9], [113.5, 113.87, 114.24, 114.61, 114.98, 115.35, 115.72, 116.09, 116.46, 116.83, 117.2, 117.57], [1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5], [-17.0, -12.0, -7.0, -2.0, 3.0, 8.0, 13.0, 18.0, 23.0, 28.0, 33.0, 38.0], null, [4.375, 4.375, 4.375, 4.375, 4.375, 4.375, 4.375, 4.375, 4.375, 4.375, 4.375, 4.375], [5.45, 5.35, 5.25, 5.15, 5.05, 4.95, 4.85, 4.75, 4.65, 4.55, 4.45, 4.35], [3.5, 3.4, 3.3, 3.2, 3.1, 3.0, 2.9, 2.8, 2.7, 2.6, 2.5, 2.4], [3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4.0, 4.1, 4.2], [2.7, 2.7, 2.7, 2.7, 2.7, 2.7, 2.7, 2.7, 2.7, 2.7, 2.7, 2.7], [117.0, 115.5, 114.0, 112.5, 111.0, 109.5, 108.0, 106.5, 105.0, 103.5, 102.0, 100.5], [7243.6, 7294.09, 7344.58, 7395.07, 7445.56, 7496.05, 7546.54, 7597.03, 7647.52, 7698.01, 7748.5, 7798.99], [14170.0, 14550.0, 14930.0, 15310.0, 15690.0, 16070.0, 16450.0, 16830.0, 17210.0, 17590.0, 17970.0, 18350.0], [-12.7, -9.5, -6.3, -3.1, 0.1, 3.3, 6.5, 9.7, 12.9, 16.1, 19.3, 22.5], [104.3, 101.2, 98.1, 95.0, 91.9, 88.8, 85.7, 82.6, 79.5, 76.4, 73.3, 70.2], [106.8, 103.8, 100.8, 97.8, 94.8, 91.8, 88.8, 85.8, 82.8, 79.8, 76.8, 73.8], [8300.0, 8450.0, 8600.0, 8750.0, 8900.0, 9050.0, 9200.0, 9350.0, 9500.0, 9650.0, 9800.0, 9950.0], [1650.0, 1800.0, 1950.0, 2100.0, 2250.0, 2400.0, 2550.0, 2700.0, 2850.0, 3000.0, 3150.0, 3300.0]];
+  const sparkColors = [null, "#10B981", "#10B981", "#34D399", "#94A3B8", "#F59E0B", "#A78BFA", "#94A3B8", null, "#3B82F6", "#60A5FA", "#F59E0B", "#94A3B8", "#94A3B8", "#94A3B8", "#A78BFA", "#C084FC", "#F87171", "#FB923C", "#FDBA74", "#F97316", "#FCD34D"];
+
+  sparkData.forEach((points, i) => {
+    const el = document.getElementById('spark-' + i);
+    if (!el || !points || points.length === 0) return;
+    const color = sparkColors[i] || '#3B82F6';
+
+    // Y축 범위: 데이터 범위의 ±20% padding — 스파이크 방지
+    const validPts = points.filter(v => v != null && isFinite(v));
+    if (validPts.length === 0) return;
+    const minV = Math.min(...validPts);
+    const maxV = Math.max(...validPts);
+    const range = maxV - minV || Math.abs(maxV) * 0.1 || 0.01;
+    const yMin = minV - range * 0.15;
+    const yMax = maxV + range * 0.15;
+
+    // 캔버스 높이 강제 고정
+    el.style.height = '36px';
+    el.style.maxHeight = '36px';
+
+    new Chart(el, {
+      type: 'line',
+      data: {
+        labels: points.map((_, idx) => idx),
+        datasets: [{
+          data: points,
+          borderColor: color,
+          backgroundColor: (ctx) => {
+            const chart = ctx.chart;
+            const { ctx: c, chartArea } = chart;
+            if (!chartArea) return color + '20';
+            const grad = c.createLinearGradient(0, chartArea.top, 0, chartArea.bottom);
+            grad.addColorStop(0, color + '30');
+            grad.addColorStop(1, color + '00');
+            return grad;
+          },
+          borderWidth: 1.5,
+          fill: true,
+          tension: 0.35,
+          pointRadius: 0,
+          pointHoverRadius: 0,
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false }, tooltip: { enabled: false } },
+        scales: {
+          x: { display: false },
+          y: { display: false, min: yMin, max: yMax },
+        },
+        animation: { duration: 400 },
+      }
+    });
+  });
+
+  // ---- Rates & FX ----
+  const ratesData = {"labels": ["2026-02", "2026-03", "2026-04", "2026-05", "2026-06", "2026-07", "2026-08"], "series": [{"axis": "y", "color": "#3B82F6", "data": [4.95, 4.85, 4.75, 4.65, 4.55, 4.45, 4.35], "label": "\ubbf8\uad6d 10Y (\uc88c)"}, {"axis": "y", "color": "#22D3EE", "data": [2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5], "label": "\ud55c\uad6d \uae30\uc900\uae08\ub9ac (\uc88c)"}, {"axis": "y1", "color": "#A78BFA", "data": [1449.1, 1454.4, 1459.7, 1465.0, 1470.3, 1475.6, 1480.9], "label": "\uc6d0/\ub2ec\ub7ec (\uc6b0)"}], "source": "Bloomberg, \ud55c\uad6d\uc740\ud589, FRED", "title": "\uae08\ub9ac\u00b7\ud658\uc728 \ucd94\uc774", "y_left_label": "(%)", "y_right_label": "(\uc6d0)"};
+  if (ratesData && ratesData.labels) {
+    new Chart(document.getElementById('chart-rates'), {
+      type: 'line',
+      data: {
+        labels: ratesData.labels,
+        datasets: ratesData.series.map(s => ({
+          label: s.label,
+          data: s.data,
+          borderColor: s.color,
+          backgroundColor: s.color + '15',
+          borderWidth: 1.8,
+          fill: false,
+          tension: 0.3,
+          pointRadius: 0,
+          pointHoverRadius: 4,
+          yAxisID: s.axis || 'y',
+        })),
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: 'rgba(11, 18, 32, 0.95)',
+            borderColor: 'rgba(255,255,255,0.1)',
+            borderWidth: 1, padding: 10,
+            titleColor: '#E8ECF4', bodyColor: '#94A3B8',
+          }
+        },
+        scales: {
+          x: { grid: { color: gridColor, drawTicks: false }, ticks: { color: axisColor, maxRotation: 0 } },
+          y: {
+            position: 'left',
+            grid: { color: gridColor, drawTicks: false },
+            ticks: { color: axisColor },
+            title: { display: !!ratesData.y_left_label, text: ratesData.y_left_label, color: axisColor }
+          },
+          y1: {
+            position: 'right',
+            grid: { drawOnChartArea: false },
+            ticks: { color: axisColor },
+            title: { display: !!ratesData.y_right_label, text: ratesData.y_right_label, color: axisColor }
+          }
+        }
+      }
+    });
+  }
+
+  // ---- Inflation & PMI ----
+  const infData = {"labels": ["2026-02", "2026-03", "2026-04", "2026-05", "2026-06", "2026-07", "2026-08"], "series": [{"color": "#F59E0B", "data": [3.0, 2.9, 2.8, 2.7, 2.6, 2.5, 2.4], "label": "\ubbf8\uad6d CPI (\uc9c0\uc218)"}, {"color": "#10B981", "data": [115.35, 115.72, 116.09, 116.46, 116.83, 117.2, 117.57], "label": "\ud55c\uad6d CPI (\uc9c0\uc218)"}], "source": "\ud1b5\uacc4\uccad, BLS, S\u0026P Global", "title": "\ubb3c\uac00\uc640 \uacbd\uae30 \ubaa8\uba58\ud140"};
+  if (infData && infData.labels) {
+    new Chart(document.getElementById('chart-inflation'), {
+      data: {
+        labels: infData.labels,
+        datasets: infData.series.map(s => ({
+          type: s.type || 'line',
+          label: s.label,
+          data: s.data,
+          borderColor: s.color,
+          backgroundColor: s.type === 'bar' ? s.color + '60' : s.color + '20',
+          borderWidth: s.type === 'bar' ? 0 : 1.8,
+          borderRadius: s.type === 'bar' ? 4 : 0,
+          fill: false,
+          tension: 0.3,
+          pointRadius: s.type === 'bar' ? 0 : 2.5,
+          yAxisID: s.axis || 'y',
+        })),
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: 'rgba(11, 18, 32, 0.95)',
+            borderColor: 'rgba(255,255,255,0.1)',
+            borderWidth: 1, padding: 10,
+            titleColor: '#E8ECF4', bodyColor: '#94A3B8',
+          }
+        },
+        scales: {
+          x: { grid: { color: gridColor, drawTicks: false }, ticks: { color: axisColor, maxRotation: 0 } },
+          y: {
+            position: 'left',
+            grid: { color: gridColor, drawTicks: false },
+            ticks: { color: axisColor },
+            title: { display: !!infData.y_left_label, text: infData.y_left_label, color: axisColor }
+          },
+          y1: {
+            position: 'right',
+            grid: { drawOnChartArea: false },
+            ticks: { color: axisColor },
+            title: { display: !!infData.y_right_label, text: infData.y_right_label, color: axisColor }
+          }
+        }
+      }
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
